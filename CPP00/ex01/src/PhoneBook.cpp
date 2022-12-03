@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 22:56:10 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/02 23:04:39 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	PhoneBook::add_contact(void){
 void	PhoneBook::_work(void){
 	std::string	input;
 
-	while (42)
-	{
+	do {
 		std::getline(std::cin, input);
 		if (input == ADD)
 			this->add_contact();
@@ -53,8 +52,5 @@ void	PhoneBook::_work(void){
 			std::cout << input << std::endl;
 		else if (input == EXIT)
 			break ;
-		else
-			std::cout << "command not exists" << std::endl;
-		// break;
-	}
+	} while (input != EXIT);
 }
