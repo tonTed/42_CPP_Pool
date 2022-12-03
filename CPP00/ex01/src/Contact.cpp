@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:45:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 19:22:42 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/02 23:00:34 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,26 @@ Contact::Contact()
 
 Contact::~Contact()
 {
+}
+
+std::string	Contact::get_first_name(void) const {
+	return (this->_first_name);
+}
+
+std::string	Contact::get_last_name(void) const {
+	return (this->_last_name);
+}
+
+std::string	Contact::get_nickname(void) const {
+	return (this->_nickname);
+}
+
+std::string	Contact::get_phone_number(void) const {
+	return (this->_phone_number);
+}
+
+std::string	Contact::get_darkest_secret(void) const {
+	return (this->_darkest_secret);
 }
 
 void	Contact::set_first_name(std::string first_name){

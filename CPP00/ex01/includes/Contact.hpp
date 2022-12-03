@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 19:22:44 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/02 22:58:40 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ private:
 public:
 	Contact();
 	~Contact();
+
+	std::string	get_first_name(void) const;
+	std::string	get_last_name(void) const;
+	std::string	get_nickname(void) const;
+	std::string	get_phone_number(void) const;
+	std::string	get_darkest_secret(void) const;
 
 	void	set_first_name(std::string first_name);
 	void	set_last_name(std::string last_name);
