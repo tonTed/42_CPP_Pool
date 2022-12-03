@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:45:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:00:34 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/02 23:39:25 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,13 @@ void	Contact::set_phone_number(std::string phone_number){
 
 void	Contact::set_darkest_secret(std::string darkest_secret){
 	this->_darkest_secret = darkest_secret;
+}
+
+void	Contact::print_contact() const {
+	
+	std::cout << "First name: " << this->_first_name << std:: endl;
+	std::cout << "Last name: " << this->_last_name << std:: endl;
+	std::cout << "Nickname: " << this->_nickname << std:: endl;
+	std::cout << "Phone number: " << this->_phone_number << std:: endl;
+	std::cout << "Darkest secret: " << this->_darkest_secret << std:: endl;
 }

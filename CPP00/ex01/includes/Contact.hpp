@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 22:58:40 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/02 23:40:39 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ public:
 	void	set_nickname(std::string nickname);
 	void	set_phone_number(std::string phone_number);
 	void	set_darkest_secret(std::string darkest_secret);
+
+	void	print_contact(void) const;
 };
 
