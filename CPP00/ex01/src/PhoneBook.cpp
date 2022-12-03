@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:07:24 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/02 23:12:56 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,24 @@ std::string	PhoneBook::_get_input_not_empty(std::string const prefix) const {
 }
 
 void	PhoneBook::add_contact(void){
-
-	std::string	input;
 	
-	std::cout << "First Name: "; std::getline(std::cin, input);
-	this->_contacts[this->_i].set_first_name(input);
-	std::cout << "Last Name: "; std::getline(std::cin, input);
-	this->_contacts[this->_i].set_last_name(input);
-	std::cout << "Nickname: "; std::getline(std::cin, input);
-	this->_contacts[this->_i].set_nickname(input);
-	std::cout << "Phone Number: ";std::getline(std::cin, input);
-	this->_contacts[this->_i].set_phone_number(input);
-	std::cout << "Darkest Secret: "; std::getline(std::cin, input);
-	this->_contacts[this->_i].set_darkest_secret(input);
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
+	
+	first_name = this->_get_input_not_empty("First Name: ");
+	last_name = this->_get_input_not_empty("Last Name: ");
+	nickname = this->_get_input_not_empty("Nickname: ");
+	phone_number = this->_get_input_not_empty("Phone Number: ");
+	darkest_secret = this->_get_input_not_empty("Darkest Secret: ");
+	
+	this->_contacts[this->_i].set_first_name(first_name);
+	this->_contacts[this->_i].set_last_name(last_name);
+	this->_contacts[this->_i].set_nickname(nickname);
+	this->_contacts[this->_i].set_phone_number(phone_number);
+	this->_contacts[this->_i].set_darkest_secret(darkest_secret);
 	if (this->_i == 7)
 		this->_i = 0;
 	else
