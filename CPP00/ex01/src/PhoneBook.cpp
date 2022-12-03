@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 20:34:53 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/02 22:56:10 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(){
-	this->_work();
 	this->_i = 0;
+	this->_work();
 }
 
 PhoneBook::~PhoneBook(){
@@ -22,7 +22,7 @@ PhoneBook::~PhoneBook(){
 }
 
 void	PhoneBook::add_contact(void){
-	
+
 	std::string	input;
 	
 	std::cout << "First Name: "; std::getline(std::cin, input);
