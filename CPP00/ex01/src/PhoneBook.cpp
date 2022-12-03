@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:04:39 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/02 23:07:24 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ PhoneBook::PhoneBook(){
 
 PhoneBook::~PhoneBook(){
 
+}
+
+std::string	PhoneBook::_get_input_not_empty(std::string const prefix) const {
+	
+	std::string	ret;
+	
+	do{
+		std::cout << prefix ; std::getline(std::cin, ret);
+		ret.erase(std::remove_if(ret.begin(), ret.end(), ::isspace), ret.end());
+	} while (!ret.length());
+	return (ret);
 }
 
 void	PhoneBook::add_contact(void){
