@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:25:07 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 20:30:15 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/02 22:28:05 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #define	ADD "ADD"
 #define	SEARCH "SEARCH"
 #define	EXIT "EXIT"
-#define	EXIT2 "EXIT"
 
 class PhoneBook {
 
