@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:12:56 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/03 10:23:36 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,58 @@ void	PhoneBook::add_contact(void){
 		this->_i++;
 }
 
+void	PhoneBook::_print_header(void) const {
+	
+	std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << "index" << "|";
+	std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << "first_name" << "|";
+	std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << "last_name" << "|";
+	std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << "nickname" << std::endl;
+}
+
+void	PhoneBook::_print_cell(std::string s) const {
+
+	std::string	tmp;
+
+	if (s.length() > 10)
+	{
+		tmp = s.substr(0, 10);
+		tmp.replace(9, 1, 1, '.');
+	}
+	else
+		tmp = this->_contacts[0].get_first_name();
+	std::cout << std::setfill(' ') << std::setw(10) << tmp;
+}
+
+void	PhoneBook::_print_line(size_t i) const {
+
+	std::string	tmp;
+	
+	if (!this->_contacts[i].get_first_name().length())
+		return ;
+	this->_print_cell(std::to_string(i));
+	std::cout << "|";
+	this->_print_cell(this->_contacts[i].get_first_name());
+	std::cout << "|";
+	this->_print_cell(this->_contacts[i].get_last_name());
+	std::cout << "|";
+	this->_print_cell(this->_contacts[i].get_nickname());
+	std::cout << std::endl;
+	
+}
+
+void	PhoneBook::_print_phone_book(void) const {
+
+	this->_print_header();
+	
+	size_t	len_tab = std::end(this->_contacts) - std::begin(this->_contacts);
+	for (size_t i = 0; i < len_tab; i++)
+		this->_print_line(i);
+}
+
 void	PhoneBook::_work(void){
 	std::string	input;
 
@@ -65,7 +117,7 @@ void	PhoneBook::_work(void){
 		if (input == ADD)
 			this->add_contact();
 		else if (input == SEARCH)
-			std::cout << input << std::endl;
+			this->_print_phone_book();
 		else if (input == EXIT)
 			break ;
 	} while (input != EXIT);

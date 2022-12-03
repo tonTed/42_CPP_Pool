@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:25:07 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:09:07 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/03 10:18:14 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "Contact.hpp"
 # include <iostream>
+# include <iomanip> 
+# include <string>
 
 #define	ADD "ADD"
 #define	SEARCH "SEARCH"
@@ -28,6 +30,11 @@ private:
 	
 	void		_work(void);
 	std::string	_get_input_not_empty(std::string const prefix) const;
+
+	void		_print_header(void) const;
+	void		_print_phone_book(void) const;
+	void		_print_line(size_t i) const;
+	void		_print_cell(std::string s) const;
 
 public:
 	PhoneBook(void);
