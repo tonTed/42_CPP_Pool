@@ -45,13 +45,16 @@ fclean		: clean
 
 re			: fclean all
 
+print		: 
+	@echo $(OBJS)
+
 run			: all
 	./$(NAME)
 
+# Create  repo of objects!
 buildrepo	:
 	$(HIDE)$(call make-repo)
 
-# Create  repo of objects!
 define make-repo
 	$(HIDE)mkdir -p $(OBJDIR)
 	$(HIDE)for dir in $(DIRS); \
@@ -76,3 +79,5 @@ ifeq ($(VERBOSE),TRUE)
 else
     HIDE = @
 endif
+
+-include $(OBJS:)
