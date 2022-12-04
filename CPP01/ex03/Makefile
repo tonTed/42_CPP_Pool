@@ -4,7 +4,7 @@ OBJDIR := obj
 INCDIR := .
 
 # Name of the final executable
-NAME = run
+NAME = game
 
 # Decide whether the commands will be shwon or not
 VERBOSE = FALSE
