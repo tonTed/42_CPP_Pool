@@ -6,14 +6,25 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:56:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/04 12:00:48 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/04 14:12:53 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Zombie.hpp"
+
+void	randomChump( std::string name );
+Zombie*	newZombie( std::string name );
 
 int main()
 {
-	std::cout << "Hello Zombie 00" << std::endl;
+	Zombie	*foo = newZombie("Foo");
+
+	foo->announce();
+
+	randomChump("FAA");
+
+	delete foo;
+
 	return 0;
 }
