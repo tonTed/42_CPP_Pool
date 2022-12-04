@@ -4,7 +4,7 @@ OBJDIR := obj
 INCDIR := includes
 
 # Name of the final executable
-NAME = phonebook
+NAME = account
 
 # Decide whether the commands will be shwon or not
 VERBOSE = FALSE
