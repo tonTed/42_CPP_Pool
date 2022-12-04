@@ -6,9 +6,12 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/02 23:40:39 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/03 20:49:25 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include "iostream"
 
@@ -40,3 +43,4 @@ public:
 	void	print_contact(void) const;
 };
 
+#endif
