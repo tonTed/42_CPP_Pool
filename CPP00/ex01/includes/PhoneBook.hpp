@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:25:07 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/03 10:18:14 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/03 20:05:22 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,18 @@ private:
 	Contact	_contacts[8];
 	int		_i;
 	
-	void		_work(void);
+	/* Helpers */
 	std::string	_get_input_not_empty(std::string const prefix) const;
+	bool		_input_search_valid(std::string input) const;
 
+	/* */
+	void		_work(void);
+
+	/* actions */
+	void		_add_contact(void);
+	void		_search_contact(void) const;
+
+	/* outputs */
 	void		_print_header(void) const;
 	void		_print_phone_book(void) const;
 	void		_print_line(size_t i) const;
@@ -39,8 +48,6 @@ private:
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	
-	void	add_contact(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/03 10:23:36 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/03 20:13:38 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ std::string	PhoneBook::_get_input_not_empty(std::string const prefix) const {
 	return (ret);
 }
 
-void	PhoneBook::add_contact(void){
+void	PhoneBook::_add_contact(void){
 	
 	std::string	first_name;
 	std::string	last_name;
@@ -57,6 +57,32 @@ void	PhoneBook::add_contact(void){
 		this->_i++;
 }
 
+bool	PhoneBook::_input_search_valid(std::string const input) const {
+	if (!input.length())
+		return (false);
+	if (!((size_t)std::count_if(std::begin(input), std::end(input), ::isdigit) == input.length()))
+		return (false);
+
+	long i = std::stoul(input);
+	if (i >= std::end(this->_contacts) - std::begin(this->_contacts))
+		return (false);
+	if (!(this->_contacts[i].get_first_name().length()))
+		return (false);
+	return (true);
+}
+
+void	PhoneBook::_search_contact(void) const {
+	
+	std::string	input;
+
+	do {
+		std::cout << "Select index for détails: ";
+		std::getline(std::cin, input);
+	} while (!this->_input_search_valid(input));
+
+	this->_contacts[std::stoul(input)].print_contact();
+}
+
 void	PhoneBook::_print_header(void) const {
 	
 	std::cout << std::setfill(' ') << std::setw(10);
@@ -79,7 +105,7 @@ void	PhoneBook::_print_cell(std::string s) const {
 		tmp.replace(9, 1, 1, '.');
 	}
 	else
-		tmp = this->_contacts[0].get_first_name();
+		tmp = s;
 	std::cout << std::setfill(' ') << std::setw(10) << tmp;
 }
 
@@ -113,11 +139,18 @@ void	PhoneBook::_work(void){
 	std::string	input;
 
 	do {
+		std::cout << "Choose an option(ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, input);
 		if (input == ADD)
-			this->add_contact();
-		else if (input == SEARCH)
+			this->_add_contact();
+		else if (input == SEARCH){
+			if (!this->_contacts[0].get_first_name().length()){
+				std::cout << "List is empty." << std::endl;
+				continue;
+			}
 			this->_print_phone_book();
+			this->_search_contact();
+		}
 		else if (input == EXIT)
 			break ;
 	} while (input != EXIT);
