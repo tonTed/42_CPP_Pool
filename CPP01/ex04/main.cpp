@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:21:44 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/04 20:38:24 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:13:42 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@ int main(int argc, char const *argv[]){
 	if (argc != 4){
 		std::cout << "The program needs 3 arguments (" << argc - 1 << " given)."
 		<< std::endl;
+		return (EXIT_FAILURE);
 	}
 	
 	std::ifstream infile(argv[1]);
 
 	if (infile.fail()){
 		std::cout << argv[1] << ": can't open file." << std::endl;
-		exit(1);
+		return (EXIT_FAILURE);
 	}
 
 	std::ofstream outfile("outfile", std::ofstream::out);
 	if (outfile.fail()){
 		std::cout << argv[1] << ": can't open file." << std::endl;
-		exit(1);
+		return (EXIT_FAILURE);
 	}
 	outfile.clear();
 	outfile.close();
