@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:21:44 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 11:13:42 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/05 13:38:24 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,24 @@ int main(int argc, char const *argv[]){
 		return (EXIT_FAILURE);
 	}
 
-	std::ofstream outfile("outfile", std::ofstream::out);
+	std::ofstream outfile(std::string(argv[1]) + ".replace", std::ofstream::out);
 	if (outfile.fail()){
 		std::cout << argv[1] << ": can't open file." << std::endl;
 		return (EXIT_FAILURE);
 	}
-	outfile.clear();
-	outfile.close();
-	outfile.open("outfile", std::ofstream::app);
 	
-	std::string s1		= argv[2];
-	size_t		len_s1	= s1.length();
-
+	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 	std::string line;
 	size_t		i;
 
 	while (std::getline(infile, line))
 	{
-		while ((i = line.find(s1)) != size_t(-1)
-			&& (!line[i + len_s1] || ::isspace(line[i + len_s1]) || ::ispunct(line[i + len_s1])))
+		while ((i = line.find(s1)) != std::string::npos)
 		{
 			line.erase(i, s1.length());
 			line.insert(i, s2);
+			i += s2.length();
 		}
 		if (infile.eof())
 			outfile << line;
