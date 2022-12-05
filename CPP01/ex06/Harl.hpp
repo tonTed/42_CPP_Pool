@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:52:20 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 10:43:37 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:42:58 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ private:
 public:
 	Harl();
 	~Harl();
+	void complainSwitch( std::string level );
 	void complain( std::string level );
 };
 
