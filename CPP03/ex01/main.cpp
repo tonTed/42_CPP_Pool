@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:32:36 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/08 18:23:19 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/08 18:57:06 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 
 int main()
 {
-	ScavTrap	p1;
+	ScavTrap	p1(std::string("Ted"));
+
+	std::cout << p1.getEnergyPoints() << std::endl;
+	p1.attack("enemy");
+	std::cout << p1.getEnergyPoints() << std::endl;
+	p1.guardGate();
+	std::cout << p1 << std::endl;
+
 
 	return 0;
 }

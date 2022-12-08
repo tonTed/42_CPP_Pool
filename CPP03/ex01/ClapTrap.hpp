@@ -30,6 +30,7 @@ public:
 	void	setEnergyPoints(unsigned int amount);
 	void	setAttackeDamage(unsigned int amount);
 
+protected:
 	ClapTrap( void );
 
 private:

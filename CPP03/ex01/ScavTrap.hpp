@@ -6,10 +6,14 @@
 class ScavTrap : public ClapTrap {
 
 public:
-	ScavTrap( void );
 	~ScavTrap( void );
+	ScavTrap(std::string name);
+
+	void	attack(std::string target);
+	void	guardGate( void );
 
 private:
+	ScavTrap( void );
 	
 };
 
