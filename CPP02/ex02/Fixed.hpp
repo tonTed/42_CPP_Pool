@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:35:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 18:38:32 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:17:14 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,28 @@ public:
 	Fixed(Fixed const & src);
 	~Fixed( void );
 
+	/* ASSIGNEMENT OPERATOR */
 	Fixed &	operator=(Fixed const & rhs);
+
+	/* COMPARISON OPERATORS */
+	bool	operator>(Fixed const & rhs) const;
+	bool	operator<(Fixed const & rhs) const;
+	bool	operator>=(Fixed const & rhs) const;
+	bool	operator<=(Fixed const & rhs) const;
+	bool	operator==(Fixed const & rhs) const;
+	bool	operator!=(Fixed const & rhs) const;
+
+	/* BINARY ARITHMETIC OPERATORS */
+	Fixed	operator+(Fixed const & rhs) const;
+	Fixed	operator-(Fixed const & rhs) const;
+	Fixed	operator*(Fixed const & rhs) const;
+	Fixed	operator/(Fixed const & rhs) const;
+
+	/* INCREMENT DECREMENT OPERATORS */
+	Fixed &	operator++(void);
+	Fixed	operator++(int);
+	Fixed &	operator--(void);
+	Fixed	operator--(int);
 
 	/* GETTERS */
 	int		getRawBits( void ) const;
@@ -34,6 +55,14 @@ public:
 	/* CONVERTERS */
 	float	toFloat() const;
 	int		toInt() const;
+
+	/* */
+	static Fixed	min(Fixed const & lhs, Fixed const & rhs);
+	static Fixed	max(Fixed const & lhs, Fixed const & rhs);
+
+	static Fixed &	min(Fixed & lhs, Fixed & rhs);
+	static Fixed &	max(Fixed & lhs, Fixed & rhs);
+
 
 private:
 	int					_number;

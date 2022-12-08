@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:49:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 18:40:37 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:35:42 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,21 @@
 #include <math.h>
 #include <bitset>
 
-Fixed::Fixed( void ) : _number(0) {
-
-	std::cout << "Default constructor called" << std::endl;
-};
+Fixed::Fixed( void ) : _number(0) {};
 
 Fixed::Fixed(int const number){
-
-	std::cout << "Int constructor called" << std::endl;
 	this->_number = number << this->_decimals;
 };
 
 Fixed::Fixed(float const number){
-
-	std::cout << "Float constructor called" << std::endl;
 	this->_number = int(number * float(1 << this->_decimals) + (number >= 0 ? 0.5 : -0.5));
 };
 
-Fixed::Fixed(Fixed const & src){
+Fixed::Fixed(Fixed const & src){ *this = src; };
 
-	std::cout << "Copy constructor called" << std::endl;
-
-	*this = src;
-};
-
-Fixed::~Fixed( void ){
-
-	std::cout << "Destructor called" << std::endl;
-};
+Fixed::~Fixed( void ){};
 
 Fixed &	Fixed::operator=(Fixed const & rhs){
-
-	std::cout << "Copy assignment operator called" << std::endl;
 	
 	if(this != &rhs){
 		this->_number = rhs._number;
@@ -54,12 +37,7 @@ Fixed &	Fixed::operator=(Fixed const & rhs){
 }
 
 /* GETTERS */
-int		Fixed::getRawBits( void ) const {
-
-	std::cout << "getRawBits member function called" << std::endl;
-	
-	return (this->_number);
-};
+int		Fixed::getRawBits( void ) const { return (this->_number); };
 
 
 /* SETTERS */
@@ -77,6 +55,96 @@ int Fixed::toInt() const{
 	
     return (this->_number >> this->_decimals);
 }
+
+bool	Fixed::operator>(Fixed const & rhs) const {
+	return (this->toFloat() > rhs.toFloat());
+};
+
+bool	Fixed::operator<(Fixed const & rhs) const {
+	return (this->toFloat() < rhs.toFloat());
+};
+
+bool	Fixed::operator>=(Fixed const & rhs) const {
+	return (this->toFloat() >= rhs.toFloat());
+};
+
+bool	Fixed::operator<=(Fixed const & rhs) const {
+	return (this->toFloat() <= rhs.toFloat());
+};
+
+bool	Fixed::operator==(Fixed const & rhs) const {
+	return (this->toFloat() == rhs.toFloat());
+};
+
+bool	Fixed::operator!=(Fixed const & rhs) const {
+	return (this->toFloat() != rhs.toFloat());
+};
+
+Fixed	Fixed::operator+(Fixed const & rhs) const {
+	return (Fixed(this->toFloat() + rhs.toFloat()));
+};
+
+Fixed	Fixed::operator-(Fixed const & rhs) const {
+	return (Fixed(this->toFloat() - rhs.toFloat()));
+};
+
+Fixed	Fixed::operator*(Fixed const & rhs) const {
+	return (Fixed(this->toFloat() * rhs.toFloat()));
+};
+
+Fixed	Fixed::operator/(Fixed const & rhs) const {
+	return (Fixed(this->toFloat() / rhs.toFloat()));
+};
+
+Fixed &	Fixed::operator++(void){
+	this->_number += 1;
+	return (*this);
+};
+
+Fixed Fixed::operator++(int){
+	Fixed old = *this;
+	this->_number += 1;
+	return (old);
+};
+
+Fixed &	Fixed::operator--(void){
+	this->_number -= 1;
+	return (*this);
+};
+
+Fixed Fixed::operator--(int){
+	Fixed old = *this;
+	this->_number -= 1;
+	return (old);
+};
+
+
+
+Fixed	Fixed::min(Fixed const & lhs, Fixed const & rhs){
+
+	if (lhs < rhs)
+		return (lhs);
+	return (rhs);
+};
+Fixed	Fixed::max(Fixed const & lhs, Fixed const & rhs){
+
+	if (lhs > rhs)
+		return (lhs);
+	return (rhs);
+};
+
+Fixed &	Fixed::min(Fixed & lhs, Fixed & rhs){
+
+	if (lhs < rhs)
+		return (lhs);
+	return (rhs);
+};
+Fixed &	Fixed::max(Fixed & lhs, Fixed & rhs){
+
+	if (lhs > rhs)
+		return (lhs);
+	return (rhs);
+};
 
 int const Fixed::_decimals = 8;
 

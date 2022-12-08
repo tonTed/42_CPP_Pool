@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 16:07:12 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 18:58:41 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:35:57 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
-	
+
 	return 0;
 }
