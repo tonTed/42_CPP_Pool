@@ -4,7 +4,7 @@ OBJDIR := obj
 INCDIR := .
 
 # Name of the final executable
-NAME = FragTrap
+NAME = DiamondTrap
 
 # Decide whether the commands will be shwon or not
 VERBOSE = FALSE

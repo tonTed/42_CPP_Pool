@@ -1,23 +1,23 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) {
+ScavTrap::ScavTrap(void) {
 
 	std::cout << "ScavTrap " + this->_name + " has been constructed." << std::endl;
 };
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+ScavTrap::ScavTrap(std::string const & name) : ClapTrap(name) {
+	this->_hitPoints = ScavTrap::HIT_POINTS;
+	this->_energyPoints = ScavTrap::ENERGY_POINTS;
+	this->_attackDamage = ScavTrap::ATTACK_DAMAGE;
 	std::cout << "ScavTrap " + name + " has been constructed." << std::endl;
 };
 
-ScavTrap::~ScavTrap( void ) {
+ScavTrap::~ScavTrap(void) {
 
 	std::cout << "ScavTrap " + this->_name + " has been destructed." << std::endl;
 };
 
-void	ScavTrap::attack(std::string target){
+void	ScavTrap::attack(std::string const & target){
 	if (this->_hitPoints && this->_energyPoints--)
 		std::cout << "ScavTrap " + this->_name + " attacks " + target  + ", causing " << 
 		this->_attackDamage <<  " points of damage!" << std::endl;
@@ -25,7 +25,7 @@ void	ScavTrap::attack(std::string target){
 		std::cout << "ScavTrap " + this->_name + " is dead." << std::endl;
 };
 
-void	ScavTrap::guardGate( void ) {
+void	ScavTrap::guardGate(void) const {
 
 	std::cout << "ScavTrap " << this->_name << " came into Gatekeeper mode" << std::endl;
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:32:36 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/09 13:06:11 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/11 20:28:17 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	DiamondTrap	p("ted");
 
-	std::cout << p << std::endl;
+	p.whoAmI();
 
 	return 0;
 }

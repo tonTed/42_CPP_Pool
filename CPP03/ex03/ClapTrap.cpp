@@ -1,15 +1,14 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ){};
+ClapTrap::ClapTrap(void){};
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(0), _name(name) {
 	std::cout << "ClapTrap " + name + " has been constructed." << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const & src){ *this = src; }; 
 
-ClapTrap::~ClapTrap( void ){
-
+ClapTrap::~ClapTrap(void){
 	std::cout << "ClapTrap " + this->_name + " has been destructed." << std::endl;
 };
 
@@ -25,7 +24,7 @@ ClapTrap &	ClapTrap::operator=(ClapTrap const & rhs){
 	return (*this);
 }
 
-void	ClapTrap::attack(std::string target){
+void	ClapTrap::attack(std::string const & target){
 	if (this->_hitPoints && this->_energyPoints--)
 		std::cout << "ClapTrap " + this->_name + " attacks " + target  + ", causing " << 
 		this->_attackDamage <<  " points of damage!" << std::endl;
