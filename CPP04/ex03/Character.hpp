@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:21:44 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/13 17:06:10 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 13:09:39 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ public:
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
+	
 
 protected:
-	AMateria*			inventory[4];
 	Character(void);
+	AMateria*			inventory[4];
 
 private:
 	std::string	_name;
