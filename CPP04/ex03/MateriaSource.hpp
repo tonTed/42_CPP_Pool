@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:21:33 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/14 13:24:23 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 21:40:31 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,8 @@ public:
 
 	void learnMateria(AMateria*);
 	AMateria* createMateria(std::string const & type);
+
+private:
+	AMateria*	_inventory[4];
+	
 };

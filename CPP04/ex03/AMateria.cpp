@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:48:41 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/14 13:09:22 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 21:38:19 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ AMateria & AMateria::operator=(AMateria const & src){
 	}
 
 	return (*this);
-};
-
-void	AMateria::use(ICharacter& target){
-	(void) target;
 };
 
 std::string const & AMateria::getType() const {

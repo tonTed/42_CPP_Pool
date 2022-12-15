@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:46:08 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/14 13:09:53 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 20:33:52 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	std::string const & getType() const;
 
 	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter & target);
+	virtual void use(ICharacter & target) = 0;
 
 protected:
 	AMateria(void);

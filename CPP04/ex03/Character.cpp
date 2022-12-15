@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:26:20 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/14 13:09:48 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 21:38:47 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <iostream>
 
 Character::Character(std::string const & name) : _name(name) {
 

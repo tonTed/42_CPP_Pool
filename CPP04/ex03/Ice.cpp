@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:14:30 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/14 13:15:09 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/14 21:29:07 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(void) : AMateria("Ice"){
+Ice::Ice(void) : AMateria("ice"){
 	std::cout << "A Ice Materia has been constructed" << std::endl;
 };
 
@@ -26,7 +26,7 @@ Ice::~Ice(void){
 Ice & Ice::operator=(Ice const & src){
 
 	if (this != &src){
-		AMateria::type = "Ice";
+		AMateria::type = "ice";
 	};
 
 	return (*this);
