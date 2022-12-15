@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:52:34 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 09:01:48 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 09:55:08 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ public:
 
 	std::string const &	getName(void) const;
 	int const & 		getGrade(void) const;
+
+	void	incrementGrade(int n);
+	void	decrementGrade(int n);
 
 	std::string	const	name;
 	int					grade;

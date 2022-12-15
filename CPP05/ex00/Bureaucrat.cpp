@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:01:30 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 09:04:50 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 09:56:27 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const & src){
 std::string const &	Bureaucrat::getName(void) const { return name; };
 
 int const & 		Bureaucrat::getGrade(void) const { return grade; };
+
+void	Bureaucrat::incrementGrade(int n){
+	grade -= n;
+};
+
+void	Bureaucrat::decrementGrade(int n){
+	grade += n;
+};
+
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw(){
 	

@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 09:04:08 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 09:58:11 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int	main(){
 
-	Bureaucrat* bur1 = new Bureaucrat(167);
+	Bureaucrat* bur1 = new Bureaucrat(50);
 
-	std::cout << bur1->getGrade() << " : " << bur1->getName() << std::endl;
+	std::cout << bur1->getName() << " : " << bur1->getGrade() << std::endl;
+
+	bur1->incrementGrade(10);
+	std::cout << bur1->getName() << " : " << bur1->getGrade() << std::endl;
+
+	bur1->decrementGrade(50);
+	std::cout << bur1->getName() << " : " << bur1->getGrade() << std::endl;
 
 	delete bur1;
 
