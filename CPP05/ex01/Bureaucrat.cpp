@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:01:30 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 20:45:05 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 20:51:33 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 Bureaucrat::Bureaucrat(void){};
 
-Bureaucrat::Bureaucrat(int const _grade) : name("default") {
-	
+Bureaucrat::Bureaucrat(int const _grade, std::string _name) : name(_name) {
+
 	setGrade(_grade);
 };
 

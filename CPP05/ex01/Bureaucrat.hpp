@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:52:34 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 20:36:07 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 20:51:11 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Bureaucrat {
 
 public:
-	Bureaucrat(int const grade);
+	Bureaucrat(int const grade, std::string name);
 	Bureaucrat(Bureaucrat const & src);
 	~Bureaucrat(void);
 
