@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:52:34 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 09:55:08 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/15 10:43:07 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <exception>
 #include <iostream>
+#include <ostream>
 
 class Bureaucrat {
 
@@ -29,6 +30,8 @@ public:
 
 	void	incrementGrade(int n);
 	void	decrementGrade(int n);
+
+	void	checkGrade(int n);
 
 	std::string	const	name;
 	int					grade;
@@ -49,3 +52,5 @@ private:
 	static int const MIN_ECHELON = 150;
 
 };
+
+std::ostream &	operator<<(std::ostream & o, Bureaucrat const & i);
