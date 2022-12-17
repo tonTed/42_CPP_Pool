@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 18:49:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 09:45:42 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:04:54 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ int	AForm::setGrade(int n){
 	catch (AForm::GradeTooLowException& e) { std::cout << e.what() << std::endl; }
 	return 0;
 }
+
+bool	AForm::canExecute(Bureaucrat const & executor) const {
+	if (executor.getGrade() > this->getGradeExec()) {
+		std::string	ret = executor.getName() +  " couldn’t execute " + this->getName() +
+		" because his grade is " + std::to_string(executor.getGrade()) + " and " +
+		std::to_string(this->getGradeExec()) + " is necessary.";
+		throw (AForm::GradeTooLowException(ret));
+	}
+	return true;
+};
 
 const char*	AForm::FormNotSignedException::what() const throw(){
 	

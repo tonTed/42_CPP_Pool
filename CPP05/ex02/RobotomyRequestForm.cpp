@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:11:14 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 11:08:11 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 10:14:40 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <string>
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("default",
-	ShrubberyCreationForm::GRADE_FOR_SIGN, ShrubberyCreationForm::GRADE_FOR_EXEC){};
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("default",
+	RobotomyRequestForm::GRADE_FOR_SIGN, RobotomyRequestForm::GRADE_FOR_EXEC){};
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) :
-	AForm(src.getName(), ShrubberyCreationForm::GRADE_FOR_SIGN,
-		ShrubberyCreationForm::GRADE_FOR_EXEC){};
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) :
+	AForm(src.getName(), RobotomyRequestForm::GRADE_FOR_SIGN,
+		RobotomyRequestForm::GRADE_FOR_EXEC){};
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const name) : AForm(name,
-	ShrubberyCreationForm::GRADE_FOR_SIGN, ShrubberyCreationForm::GRADE_FOR_EXEC){};
+RobotomyRequestForm::RobotomyRequestForm(std::string const name) : AForm(name,
+	RobotomyRequestForm::GRADE_FOR_SIGN, RobotomyRequestForm::GRADE_FOR_EXEC){};
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void){};
+RobotomyRequestForm::~RobotomyRequestForm(void){};
 
-ShrubberyCreationForm&	ShrubberyCreationForm::operator=(ShrubberyCreationForm const & src){
+RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const & src){
 	(void) src;
 
 	return *this;
 };
 
-void	ShrubberyCreationForm::execute(Bureaucrat & executor) const {
+void	RobotomyRequestForm::execute(Bureaucrat & executor) const {
 	try {
 		if (!this->getIsFormSign())
 			throw (AForm::FormNotSignedException());
@@ -43,18 +45,12 @@ void	ShrubberyCreationForm::execute(Bureaucrat & executor) const {
 		// 	std::to_string(this->getGradeExec()) + " is necessary.";
 		// 	throw (AForm::GradeTooLowException(ret));
 		// }
-
 		this->canExecute(executor);
 
-		std::ofstream	outfile(this->getName() + "_shrubbery");
-		std::ifstream	infile("ASCII_TREE");
-
-		std::string	tmp;
-		while(std::getline(infile, tmp))
-			outfile << tmp << std::endl;
-
-		outfile.close();
-		infile.close();
+		if (std::time(NULL) % 2)
+			std::cout << this->getName() << " has been robotomized!" << std::endl;
+		else
+			std::cout << "robotization for "<< this->getName() <<" failed!" << std::endl;
 	}
 	catch (AForm::FormNotSignedException &e) { std::cout << e.what() << std::endl; }
 	catch (AForm::GradeTooLowException &e) { std::cout << e.what() << std::endl; }

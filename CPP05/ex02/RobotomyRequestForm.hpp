@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:06:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 10:56:12 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 10:07:13 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-class ShrubberyCreationForm :  public AForm {
+class RobotomyRequestForm :  public AForm {
 
 public:
-	ShrubberyCreationForm(void);
-	ShrubberyCreationForm(ShrubberyCreationForm const & src);
-	ShrubberyCreationForm(std::string const name);
-	~ShrubberyCreationForm(void);
+	RobotomyRequestForm(void);
+	RobotomyRequestForm(RobotomyRequestForm const & src);
+	RobotomyRequestForm(std::string const name);
+	~RobotomyRequestForm(void);
 
-	void	execute(Bureaucrat & executor) const;
+	void	execute(Bureaucrat & executor) const ;
 
-	ShrubberyCreationForm&	operator=(ShrubberyCreationForm const & src);
+	RobotomyRequestForm&	operator=(RobotomyRequestForm const & src);
 
 private:
 
-	static int const	GRADE_FOR_SIGN = 145;
-	static int const	GRADE_FOR_EXEC = 137;
+	static int const	GRADE_FOR_SIGN = 72;
+	static int const	GRADE_FOR_EXEC = 45;
 };

@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:54:55 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 09:54:11 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:05:18 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 
 	void	beSigned(Bureaucrat & bur);
 
-	virtual void	execute(Bureaucrat & bur) = 0;
+	virtual void	execute(Bureaucrat & bur) const = 0;
 
 	class FormNotSignedException : public std::exception {
 		public:
@@ -59,9 +59,11 @@ public:
 			const char* what() const throw();
 	};
 
+	
 protected:
 	AForm(void);
 	
+	bool	canExecute(Bureaucrat const & executor) const;
 	void	checkGrade(int n);
 	int		setGrade(int n);
 
