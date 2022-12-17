@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Grade.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:52:34 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/16 20:56:42 by tonted           ###   ########.fr       */
+/*   Created: 2022/12/15 21:24:19 by tonted            #+#    #+#             */
+/*   Updated: 2022/12/15 21:46:03 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,16 @@
 
 #include <exception>
 #include <iostream>
-#include <ostream>
 
-class Form;
+class Grade {
 
-class Bureaucrat {
-
-public:
-	Bureaucrat(int const grade, std::string name);
-	Bureaucrat(Bureaucrat const & src);
-	~Bureaucrat(void);
-
-	Bureaucrat&	operator=(Bureaucrat const & src);
-
-	std::string const &	getName(void) const;
-	int const & 		getGrade(void) const;
-
-	void	incrementGrade(int n);
-	void	decrementGrade(int n);
-
-	void	signForm(Form& form);
+protected:
+	static int const MAX_ECHELON = 1;
+	static int const MIN_ECHELON = 150;
 
 	void	checkGrade(int n);
-	void	setGrade(int n);
+	void	setGrade(int n, int *grade);
 
-	std::string	const	name;
-	int					grade;
-	
 	class GradeTooHighException : public std::exception {
 		public:
 			const char* what() const throw();
@@ -51,11 +34,5 @@ public:
 			const char* what() const throw();
 	};
 
-private:
-	Bureaucrat(void);
-	static int const MAX_ECHELON = 1;
-	static int const MIN_ECHELON = 150;
 
 };
-
-std::ostream &	operator<<(std::ostream & o, Bureaucrat const & i);

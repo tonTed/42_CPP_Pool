@@ -6,11 +6,12 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:01:30 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/15 20:51:33 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/16 22:33:21 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <string>
 
 Bureaucrat::Bureaucrat(void){};
@@ -40,6 +41,8 @@ int const & 		Bureaucrat::getGrade(void) const { return grade; };
 void	Bureaucrat::incrementGrade(int n){ setGrade(grade - n); };
 
 void	Bureaucrat::decrementGrade(int n){ setGrade(grade + n); };
+
+void	Bureaucrat::signForm(Form & form){ form.beSigned(*this); };
 
 void	Bureaucrat::checkGrade(int n){
 	if (n < Bureaucrat::MAX_ECHELON){ throw Bureaucrat::GradeTooHighException(); }
