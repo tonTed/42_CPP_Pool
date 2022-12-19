@@ -35,23 +35,10 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const & 
 	return *this;
 };
 
-void	RobotomyRequestForm::execute(Bureaucrat & executor) const {
-	try {
-		if (!this->getIsFormSign())
-			throw (AForm::FormNotSignedException());
-		// if (executor.getGrade() > this->getGradeExec()) {
-		// 	std::string	ret = executor.getName() +  " couldn’t execute " + this->getName() +
-		// 	" because his grade is " + std::to_string(executor.getGrade()) + " and " +
-		// 	std::to_string(this->getGradeExec()) + " is necessary.";
-		// 	throw (AForm::GradeTooLowException(ret));
-		// }
-		this->canExecute(executor);
+void	RobotomyRequestForm::_execute(void) const {
 
-		if (std::time(NULL) % 2)
-			std::cout << this->getName() << " has been robotomized!" << std::endl;
-		else
-			std::cout << "robotization for "<< this->getName() <<" failed!" << std::endl;
-	}
-	catch (AForm::FormNotSignedException &e) { std::cout << e.what() << std::endl; }
-	catch (AForm::GradeTooLowException &e) { std::cout << e.what() << std::endl; }
+	if (std::time(NULL) % 2)
+		std::cout << this->getName() << " has been robotomized!" << std::endl;
+	else
+		std::cout << "robotization for "<< this->getName() <<" failed!" << std::endl;
 };

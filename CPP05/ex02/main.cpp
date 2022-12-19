@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 11:24:51 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 11:26:38 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,38 +20,38 @@
 
 int	main(){
 
-	Bureaucrat* bur0 = new Bureaucrat(150, "Paul");
-	Bureaucrat* bur1 = new Bureaucrat(50, "Pierre");
-	Bureaucrat* bur2 = new Bureaucrat(1, "Jack");
+	Bureaucrat* paul = new Bureaucrat(150, "Paul");
+	Bureaucrat* pierre = new Bureaucrat(50, "Pierre");
+	Bureaucrat* jack = new Bureaucrat(1, "Jack");
 
-	ShrubberyCreationForm*	form0 = new ShrubberyCreationForm("form0");
-	RobotomyRequestForm*	form1 = new RobotomyRequestForm("form1");
-	PresidentialPardonForm*	form2 = new PresidentialPardonForm("form2");
+	ShrubberyCreationForm*	Shru = new ShrubberyCreationForm("Shru");
+	RobotomyRequestForm*	Robo = new RobotomyRequestForm("Robo");
+	PresidentialPardonForm*	Pres = new PresidentialPardonForm("Pres");
 
-	bur0->signForm(*form0);
-	form0->execute(*bur0);
-	bur1->signForm(*form0);
-	form0->execute(*bur0);
-	form0->execute(*bur1);
+	paul->signForm(*Shru);
+	Shru->execute(*paul);
+	pierre->signForm(*Shru);
+	Shru->execute(*paul);
+	Shru->execute(*pierre);
 
-	form1->beSigned(*bur1);
-	form1->execute(*bur1);
-	form1->execute(*bur2);
-	form1->execute(*bur1);
+	Robo->beSigned(*pierre);
+	Robo->execute(*pierre);
+	Robo->execute(*jack);
+	Robo->execute(*pierre);
 
-	form2->execute(*bur2);
-	form2->beSigned(*bur1);
-	bur2->signForm(*form2);
-	bur2->executeForm(*form2);
+	Pres->execute(*jack);
+	Pres->beSigned(*pierre);
+	jack->signForm(*Pres);
+	jack->executeForm(*Pres);
 
-	bur0->executeForm(*form2);
+	paul->executeForm(*Pres);
 
 
-	delete bur0;
-	delete bur1;
-	delete bur2;
-	delete form0;
-	delete form1;
+	delete paul;
+	delete pierre;
+	delete jack;
+	delete Shru;
+	delete Robo;
 
 	return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 18:49:47 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 11:04:54 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 11:33:04 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,41 @@ int	AForm::setGrade(int n){
 }
 
 bool	AForm::canExecute(Bureaucrat const & executor) const {
-	if (executor.getGrade() > this->getGradeExec()) {
-		std::string	ret = executor.getName() +  " couldn’t execute " + this->getName() +
-		" because his grade is " + std::to_string(executor.getGrade()) + " and " +
-		std::to_string(this->getGradeExec()) + " is necessary.";
-		throw (AForm::GradeTooLowException(ret));
+	
+	try {
+		if (executor.getGrade() > this->getGradeExec()) {
+			std::string	ret = executor.getName() +  " couldn’t execute " + this->getName() +
+			" because his grade is " + std::to_string(executor.getGrade()) + " and " +
+			std::to_string(this->getGradeExec()) + " is necessary.";
+			
+			throw (AForm::GradeTooLowException(ret));
+		}
+	}
+	catch(AForm::GradeTooLowException &e) {
+		std::cout << e.what() << std::endl;
+		return false;
 	}
 	return true;
 };
+
+bool	AForm::execute(Bureaucrat &executor) const {
+	try {
+		if (!getIsFormSign()){
+			throw (AForm::FormNotSignedException());
+		}
+		if (executor.getGrade() > this->getGradeExec()){
+			std::string	ret = executor.getName() +  " couldn’t execute " + this->getName() +
+			" because his grade is " + std::to_string(executor.getGrade()) + " and " +
+			std::to_string(this->getGradeExec()) + " is necessary.";
+			throw(AForm::GradeTooLowException(ret)); 
+		}
+		_execute();
+		return (true);
+	}
+	catch (AForm::FormNotSignedException &e) { std::cout << e.what() << std::endl; }
+	catch (AForm::GradeTooLowException &e) { std::cout << e.what() << std::endl; }
+	return (false);
+}
 
 const char*	AForm::FormNotSignedException::what() const throw(){
 	

@@ -23,12 +23,12 @@ public:
 	RobotomyRequestForm(std::string const name);
 	~RobotomyRequestForm(void);
 
-	void	execute(Bureaucrat & executor) const ;
 
 	RobotomyRequestForm&	operator=(RobotomyRequestForm const & src);
 
 private:
-
+	void	_execute(void) const ;
+	
 	static int const	GRADE_FOR_SIGN = 72;
 	static int const	GRADE_FOR_EXEC = 45;
 };

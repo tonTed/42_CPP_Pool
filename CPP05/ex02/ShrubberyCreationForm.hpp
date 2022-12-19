@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:06:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 10:56:12 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 11:23:24 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ public:
 	ShrubberyCreationForm(std::string const name);
 	~ShrubberyCreationForm(void);
 
-	void	execute(Bureaucrat & executor) const;
 
 	ShrubberyCreationForm&	operator=(ShrubberyCreationForm const & src);
 
 private:
 
+	void	_execute(void) const;
+	
 	static int const	GRADE_FOR_SIGN = 145;
 	static int const	GRADE_FOR_EXEC = 137;
 };

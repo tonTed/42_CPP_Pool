@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:54:55 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 11:05:18 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 11:23:02 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 
 	void	beSigned(Bureaucrat & bur);
 
-	virtual void	execute(Bureaucrat & bur) const = 0;
+	bool	execute(Bureaucrat & bur) const;
 
 	class FormNotSignedException : public std::exception {
 		public:
@@ -63,9 +63,10 @@ public:
 protected:
 	AForm(void);
 	
-	bool	canExecute(Bureaucrat const & executor) const;
-	void	checkGrade(int n);
-	int		setGrade(int n);
+	virtual void	_execute(void) const = 0;
+	bool			canExecute(Bureaucrat const & executor) const;
+	void			checkGrade(int n);
+	int				setGrade(int n);
 
 private:
 
