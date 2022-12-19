@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:06:11 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/19 11:23:24 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/19 16:21:13 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ public:
 	ShrubberyCreationForm(ShrubberyCreationForm const & src);
 	ShrubberyCreationForm(std::string const name);
 	~ShrubberyCreationForm(void);
-
 
 	ShrubberyCreationForm&	operator=(ShrubberyCreationForm const & src);
 

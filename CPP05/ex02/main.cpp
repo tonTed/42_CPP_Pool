@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/19 11:26:38 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/19 16:14:33 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ int	main(){
 	Bureaucrat* pierre = new Bureaucrat(50, "Pierre");
 	Bureaucrat* jack = new Bureaucrat(1, "Jack");
 
+	// sign: 145 | execute: 137
 	ShrubberyCreationForm*	Shru = new ShrubberyCreationForm("Shru");
+
+	// sign: 72 | execute: 45
 	RobotomyRequestForm*	Robo = new RobotomyRequestForm("Robo");
+
+	// sign: 25 | execute: 5
 	PresidentialPardonForm*	Pres = new PresidentialPardonForm("Pres");
 
 	paul->signForm(*Shru);
