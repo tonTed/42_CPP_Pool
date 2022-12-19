@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:01:30 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 09:39:46 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:24:25 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ void	Bureaucrat::incrementGrade(int n){ setGrade(grade - n); };
 void	Bureaucrat::decrementGrade(int n){ setGrade(grade + n); };
 
 void	Bureaucrat::signForm(AForm & form){ form.beSigned(*this); };
+
+void	Bureaucrat::executeForm(AForm const & form) { 
+	
+	try{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(...){};
+};
 
 void	Bureaucrat::checkGrade(int n){
 	if (n < Bureaucrat::MAX_ECHELON){ throw Bureaucrat::GradeTooHighException(); }

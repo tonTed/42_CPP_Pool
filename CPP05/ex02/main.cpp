@@ -6,11 +6,12 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 11:08:43 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:24:51 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
@@ -25,6 +26,7 @@ int	main(){
 
 	ShrubberyCreationForm*	form0 = new ShrubberyCreationForm("form0");
 	RobotomyRequestForm*	form1 = new RobotomyRequestForm("form1");
+	PresidentialPardonForm*	form2 = new PresidentialPardonForm("form2");
 
 	bur0->signForm(*form0);
 	form0->execute(*bur0);
@@ -36,6 +38,13 @@ int	main(){
 	form1->execute(*bur1);
 	form1->execute(*bur2);
 	form1->execute(*bur1);
+
+	form2->execute(*bur2);
+	form2->beSigned(*bur1);
+	bur2->signForm(*form2);
+	bur2->executeForm(*form2);
+
+	bur0->executeForm(*form2);
 
 
 	delete bur0;

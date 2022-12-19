@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:52:34 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/17 09:40:01 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/17 11:15:53 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
 	void	decrementGrade(int n);
 
 	void	signForm(AForm& form);
+	void	executeForm(AForm const & form);
 
 	void	checkGrade(int n);
 	void	setGrade(int n);
