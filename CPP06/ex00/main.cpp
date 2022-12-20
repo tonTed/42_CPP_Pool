@@ -6,18 +6,18 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/20 10:47:17 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/20 13:50:48 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-void print_byte_as_bits(char val) {
-	for (int i = 7; 0 <= i; i--) {
-		printf("%c", (val & (1 << i)) ? '1' : '0');
-	}
-  std::cout << std::endl;
-}
+// void print_byte_as_bits(char val) {
+// 	for (int i = 7; 0 <= i; i--) {
+// 		printf("%c", (val & (1 << i)) ? '1' : '0');
+// 	}
+//   std::cout << std::endl;
+// }
 
 int	main(int ac, char *av[]){
 
