@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/19 16:14:33 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 19:50:24 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,27 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 #include <ostream>
 
 int	main(){
 
-	Bureaucrat* paul = new Bureaucrat(150, "Paul");
-	Bureaucrat* pierre = new Bureaucrat(50, "Pierre");
-	Bureaucrat* jack = new Bureaucrat(1, "Jack");
+	Intern	intern;
+	AForm*	form1;
+	AForm*	form2;
+	AForm*	form3;
+	AForm*	form4;
 
-	// sign: 145 | execute: 137
-	ShrubberyCreationForm*	Shru = new ShrubberyCreationForm("Shru");
+	form1 = intern.makeForm("shrubbery request", "osef1");
+	form2 = intern.makeForm("robotomy request", "osef2");
+	form3 = intern.makeForm("presidential request", "osef3");
+	form4 = intern.makeForm("osef request", "osef4");
 
-	// sign: 72 | execute: 45
-	RobotomyRequestForm*	Robo = new RobotomyRequestForm("Robo");
-
-	// sign: 25 | execute: 5
-	PresidentialPardonForm*	Pres = new PresidentialPardonForm("Pres");
-
-	paul->signForm(*Shru);
-	Shru->execute(*paul);
-	pierre->signForm(*Shru);
-	Shru->execute(*paul);
-	Shru->execute(*pierre);
-
-	Robo->beSigned(*pierre);
-	Robo->execute(*pierre);
-	Robo->execute(*jack);
-	Robo->execute(*pierre);
-
-	Pres->execute(*jack);
-	Pres->beSigned(*pierre);
-	jack->signForm(*Pres);
-	jack->executeForm(*Pres);
-
-	paul->executeForm(*Pres);
-
-
-	delete paul;
-	delete pierre;
-	delete jack;
-	delete Shru;
-	delete Robo;
+	delete form1;
+	delete form2;
+	delete form3;
+	delete form4;
 
 	return 0;
 }

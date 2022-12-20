@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/19 16:14:33 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 19:43:45 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,43 @@ int	main(){
 	// sign: 25 | execute: 5
 	PresidentialPardonForm*	Pres = new PresidentialPardonForm("Pres");
 
+	// Paul can't sign
 	paul->signForm(*Shru);
+
+	// form is not signed to be executed
 	Shru->execute(*paul);
+
+	// form signe by Pierre
 	pierre->signForm(*Shru);
+
+	// Paul can't execute
 	Shru->execute(*paul);
+
+	// Pierre execute
 	Shru->execute(*pierre);
 
+	// Pierre sign
 	Robo->beSigned(*pierre);
-	Robo->execute(*pierre);
-	Robo->execute(*jack);
+
+	// Pierre can't execute
 	Robo->execute(*pierre);
 
+	// Jack Execute
+	Robo->execute(*jack);
+
+	// the form is not signed to be executed
 	Pres->execute(*jack);
+
+	// Pierre can't sign
 	Pres->beSigned(*pierre);
+
+	// Jack sign
 	jack->signForm(*Pres);
+
+	// Jack execute
 	jack->executeForm(*Pres);
 
+	// Paul can't execute
 	paul->executeForm(*Pres);
 
 

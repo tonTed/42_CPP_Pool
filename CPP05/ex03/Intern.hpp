@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 16:33:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/19 17:19:10 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/19 19:44:54 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ public:
 	Intern &	operator=(Intern const & src);
 
 	AForm*	makeForm(std::string formName, std::string target);
-	
-	static void(*f[3])(std::string);	
 
 private:
 	static std::string const		forms[3];
 };
-
-void Intern::f[3](std::string) = {}
