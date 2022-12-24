@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 12:30:14 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/04 14:13:09 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 11:22:26 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
-#include <iostream>
+# include <iostream>
 
 class Zombie {
 
