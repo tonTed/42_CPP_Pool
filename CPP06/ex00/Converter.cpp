@@ -6,13 +6,15 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:30:16 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/20 13:55:12 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/23 19:12:12 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 #include <algorithm>
 #include <cctype>
+#include <cstddef>
+#include <iostream>
 #include <string>
 #include <iomanip>
 
@@ -23,7 +25,7 @@ void print_byte_as_bits(char val) {
   std::cout << std::endl;
 }
 
-Converter::Converter(std::string literal) : _literal(literal) {
+Converter::Converter(std::string literal) : _literal(literal){
 	setFlag();
 	if (!_flag)
 	{
@@ -124,18 +126,29 @@ char	Converter::convertToChar(void){
 	std::string	ret;
 
 	if (_int >= 0 && _int <= 255)
-		return std::isprint(_int) ? static_cast<char>(_int) : 0;
+	{
+		if (std::isprint(_int))
+		{
+			_charOut = std::string(1, _int);
+			return static_cast<char>(_int);
+		}
+		else
+			_charOut = "Non displayable";
+	}
 	else
-		return 1;
+		_charOut = "impossible";
+	return 1;
 };
 
 void	Converter::printConversions(void){
 
-	std::cout << "char: " << _char << std::endl;
+	std::cout << "char: " << _charOut << std::endl;
 	std::cout << "int: " << _int << std::endl;
 	std::cout << std::fixed;
 	std::cout << std::setprecision(2);
 	std::cout << "float: " << _float << "f" << std::endl;
 	std::cout << "double: " << _double << std::endl;
+
+	std::cout << _charOut.length() << std::endl;
 
 }; 

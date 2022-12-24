@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:41 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/20 13:48:25 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/23 17:54:11 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ private:
 
 	std::string	_literal;
 	char		_flag;
+
+	std::string	_charOut;
+	std::string	_intOut;
+	std::string	_floatOut;
+	std::string	_doubleOut;
+
 	char		_char;
 	int			_int;
 	float		_float;

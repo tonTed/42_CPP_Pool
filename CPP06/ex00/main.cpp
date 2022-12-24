@@ -6,11 +6,13 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/20 13:50:48 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/23 18:01:08 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
+#include <climits>
+#include <cfloat>
 
 // void print_byte_as_bits(char val) {
 // 	for (int i = 7; 0 <= i; i--) {
