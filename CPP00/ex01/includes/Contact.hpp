@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/24 10:16:56 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/24 10:49:51 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 class Contact {
 
 private:
-	std::string	_first_name;
-	std::string _last_name;
+	std::string	_firstName;
+	std::string _lastName;
 	std::string _nickname;
-	std::string _phone_number;
-	std::string _darkest_secret;
+	std::string _phoneNumber;
+	std::string _darkestSecret;
 
 public:
 	Contact();
+	Contact(std::string& firstName, std::string& lastName, std::string& nickname,
+	std::string& phoneNumber, std::string& darkestSecret);
 	~Contact();
 
 	std::string	getFirstName(void) const;
@@ -33,12 +35,6 @@ public:
 	std::string	getNickname(void) const;
 	std::string	getPhoneNumber(void) const;
 	std::string	getDarkestSecret(void) const;
-
-	void	setFirstName(std::string first_name);
-	void	setLastName(std::string last_name);
-	void	setNickname(std::string nickname);
-	void	setPhoneNumber(std::string phone_number);
-	void	setDarkestSecret(std::string darkest_secret);
 
 	void	printContact(void) const;
 };

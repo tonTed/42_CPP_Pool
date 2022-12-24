@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/24 10:41:35 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/24 10:55:06 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,20 @@ std::string	PhoneBook::_getInputNotEmpty(std::string const prefix) const {
 
 void	PhoneBook::_addContact(void){
 	
-	std::string	first_name;
-	std::string	last_name;
+	std::string	firstName;
+	std::string	lastName;
 	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
 	
-	first_name = this->_getInputNotEmpty("First Name: ");
-	last_name = this->_getInputNotEmpty("Last Name: ");
+	firstName = this->_getInputNotEmpty("First Name: ");
+	lastName = this->_getInputNotEmpty("Last Name: ");
 	nickname = this->_getInputNotEmpty("Nickname: ");
-	phone_number = this->_getInputNotEmpty("Phone Number: ");
-	darkest_secret = this->_getInputNotEmpty("Darkest Secret: ");
+	phoneNumber = this->_getInputNotEmpty("Phone Number: ");
+	darkestSecret = this->_getInputNotEmpty("Darkest Secret: ");
 	
-	this->_contacts[this->_i].setFirstName(first_name);
-	this->_contacts[this->_i].setLastName(last_name);
-	this->_contacts[this->_i].setNickname(nickname);
-	this->_contacts[this->_i].setPhoneNumber(phone_number);
-	this->_contacts[this->_i].setDarkestSecret(darkest_secret);
+	_contacts[_i] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+	
 	if (this->_i == 7)
 		this->_i = 0;
 	else
