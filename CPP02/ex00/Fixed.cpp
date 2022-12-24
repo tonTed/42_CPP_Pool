@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:49:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 16:18:59 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:54:01 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ) : _number(0) {
-
-	std::cout << "Default constructor called" << std::endl;
-};
+Fixed::Fixed( void ) : _number(0) { std::cout << "Default constructor called" << std::endl; };
 
 Fixed::Fixed(Fixed const & src){
 
 	std::cout << "Copy constructor called" << std::endl;
-
 	*this = src;
 };
 
@@ -33,9 +29,8 @@ Fixed &	Fixed::operator=(Fixed const & rhs){
 
 	std::cout << "Copy assignment operator called" << std::endl;
 	
-	if(this != &rhs){
-		this->_number = rhs.getRawBits();
-	};
+	if(this != &rhs){ this->_number = rhs.getRawBits(); };
+
 	return (*this);
 }
 
@@ -49,8 +44,8 @@ int		Fixed::getRawBits( void ) const {
 
 
 /* SETTERS */
-void	Fixed::setRawBits(int const number){
-	this->_number = number;
+void	Fixed::setRawBits(int const raw){
+	this->_number = raw;
 };
 
 int const Fixed::_decimals = 8;

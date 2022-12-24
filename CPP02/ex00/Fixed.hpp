@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:35:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 16:18:10 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:59:35 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	int		getRawBits( void ) const;
 
 	/* SETTERS */
-	void	setRawBits(int const number);
+	void	setRawBits(int const raw);
 
 private:
 	int					_number;
