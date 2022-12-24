@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:19 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/03 20:49:25 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 10:16:56 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ public:
 	Contact();
 	~Contact();
 
-	std::string	get_first_name(void) const;
-	std::string	get_last_name(void) const;
-	std::string	get_nickname(void) const;
-	std::string	get_phone_number(void) const;
-	std::string	get_darkest_secret(void) const;
+	std::string	getFirstName(void) const;
+	std::string	getLastName(void) const;
+	std::string	getNickname(void) const;
+	std::string	getPhoneNumber(void) const;
+	std::string	getDarkestSecret(void) const;
 
-	void	set_first_name(std::string first_name);
-	void	set_last_name(std::string last_name);
-	void	set_nickname(std::string nickname);
-	void	set_phone_number(std::string phone_number);
-	void	set_darkest_secret(std::string darkest_secret);
+	void	setFirstName(std::string first_name);
+	void	setLastName(std::string last_name);
+	void	setNickname(std::string nickname);
+	void	setPhoneNumber(std::string phone_number);
+	void	setDarkestSecret(std::string darkest_secret);
 
-	void	print_contact(void) const;
+	void	printContact(void) const;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:25:07 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/03 20:05:22 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 10:10:33 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ private:
 	int		_i;
 	
 	/* Helpers */
-	std::string	_get_input_not_empty(std::string const prefix) const;
-	bool		_input_search_valid(std::string input) const;
+	std::string	_getInputNotEmpty(std::string const prefix) const;
+	bool		_inputSearchValid(std::string input) const;
 
 	/* */
 	void		_work(void);
 
 	/* actions */
-	void		_add_contact(void);
-	void		_search_contact(void) const;
+	void		_addContact(void);
+	void		_searchContact(void) const;
 
 	/* outputs */
-	void		_print_header(void) const;
-	void		_print_phone_book(void) const;
-	void		_print_line(size_t i) const;
-	void		_print_cell(std::string s) const;
+	void		_printHeader(void) const;
+	void		_printPhoneBook(void) const;
+	void		_printLine(size_t i) const;
+	void		_printCell(std::string s) const;
 
 public:
 	PhoneBook(void);
