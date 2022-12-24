@@ -6,11 +6,13 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:39:03 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/24 10:55:06 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/24 11:07:19 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
+#include <_ctype.h>
+#include <algorithm>
 
 PhoneBook::PhoneBook() : _i(0){ this->_work(); }
 
@@ -50,9 +52,7 @@ void	PhoneBook::_addContact(void){
 }
 
 bool	PhoneBook::_inputSearchValid(std::string const input) const {
-	if (!input.length())
-		return (false);
-	if (!((size_t)std::count_if(std::begin(input), std::end(input), ::isdigit) == input.length()))
+	if (input.length() != 1 || !::isdigit(input[0]))
 		return (false);
 
 	long i = std::stoul(input);
