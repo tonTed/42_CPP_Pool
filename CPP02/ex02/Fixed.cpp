@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:49:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 21:35:42 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 14:50:01 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,13 @@ Fixed Fixed::operator--(int){
 
 
 
-Fixed	Fixed::min(Fixed const & lhs, Fixed const & rhs){
+Fixed const &	Fixed::min(Fixed const & lhs, Fixed const & rhs){
 
 	if (lhs < rhs)
 		return (lhs);
 	return (rhs);
 };
-Fixed	Fixed::max(Fixed const & lhs, Fixed const & rhs){
+Fixed const &	Fixed::max(Fixed const & lhs, Fixed const & rhs){
 
 	if (lhs > rhs)
 		return (lhs);

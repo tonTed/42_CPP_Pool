@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:35:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/07 21:17:14 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 14:49:30 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ public:
 	Fixed	operator/(Fixed const & rhs) const;
 
 	/* INCREMENT DECREMENT OPERATORS */
+	// ++a
 	Fixed &	operator++(void);
+	// a++
 	Fixed	operator++(int);
 	Fixed &	operator--(void);
 	Fixed	operator--(int);
@@ -57,8 +59,8 @@ public:
 	int		toInt() const;
 
 	/* */
-	static Fixed	min(Fixed const & lhs, Fixed const & rhs);
-	static Fixed	max(Fixed const & lhs, Fixed const & rhs);
+	static const Fixed &	min(Fixed const & lhs, Fixed const & rhs);
+	static const Fixed &	max(Fixed const & lhs, Fixed const & rhs);
 
 	static Fixed &	min(Fixed & lhs, Fixed & rhs);
 	static Fixed &	max(Fixed & lhs, Fixed & rhs);
