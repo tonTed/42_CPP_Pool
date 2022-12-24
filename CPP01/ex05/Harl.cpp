@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:56:43 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 10:22:21 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:21:55 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,12 @@ void Harl::warning( void ){ std::cout << WARNING << std::endl; }
 void Harl::error( void ){ std::cout << ERROR << std::endl; }
 
 void Harl::complain( std::string level ){
-	
-	void (Harl::*_f_levels[4])(void) = { &Harl::info, &Harl::debug, &Harl::warning, &Harl::error };
-	
+		
 	for (size_t i = 0; i < this->_levels->length(); i++){
 		if (level == this->_levels[i])
-			(this->*_f_levels[i])();
+			(this->*f_levels[i])();
 	}
 }
 
 std::string	Harl::_levels[] = {"INFO", "DEBUG", "WARNING", "ERROR"};
-
-// void	Harl::_f_levels[] = {&Harl::info, &Harl::debug, &Harl::warning, &Harl::error};
+Harl::ptrf	Harl::f_levels[] = {&Harl::info, &Harl::debug, &Harl::warning, &Harl::error};

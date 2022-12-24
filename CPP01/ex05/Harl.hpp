@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:52:20 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 10:43:37 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:21:50 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,21 @@
 
 class Harl{
 
-private:
-
+public:
+	Harl();
+	~Harl();
+	void complain( std::string level );
+	
 	void debug( void );
 	void info( void );
 	void warning( void );
 	void error( void );
 
+
+private:
+	typedef void(Harl::*ptrf)(void);
+
 	static std::string	_levels[4];
+	static ptrf f_levels[4];
 
-	// static void	(*_f_levels[4])(void);
-	// void	(*_f_levels[4])(void);
-
-public:
-	Harl();
-	~Harl();
-	void complain( std::string level );
 };
-
-// typedef	void (Harl::*HarlMemFn[])( void );
