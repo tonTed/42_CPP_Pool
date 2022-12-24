@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:07 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/04 18:08:25 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 12:02:02 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ public:
 	HumanB(std::string name);
 	~HumanB();
 	void	attack() const;
-	void	setWeapon(Weapon &weapon);
+	void	setWeapon(Weapon *weapon);
 };
