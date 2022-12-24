@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 19:32:12 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/01 19:59:38 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/24 10:04:49 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cctype>
 
 namespace ft {
-	void	to_upper(char *s){
+	void	toUpper(char *s){
 		for (size_t i = 0; i < strlen(s); i++)
 			s[i] = toupper(s[i]);
 	}
@@ -23,7 +23,7 @@ namespace ft {
 int main(int ac, char **av)
 {
 	for (size_t i = 1; i < ac; i++){
-		ft::to_upper(av[i]);
+		ft::toUpper(av[i]);
 		std::cout << av[i];
 	}
 	if (ac == 1)
