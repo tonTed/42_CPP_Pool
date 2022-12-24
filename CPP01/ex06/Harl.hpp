@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:52:20 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 11:42:58 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/24 13:46:09 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 
 class Harl{
 
+public:
+	Harl();
+	~Harl();
+	void complainSwitch( std::string level );
+	void complain( std::string level );
+
 private:
 
 	void debug( void );
@@ -24,16 +30,8 @@ private:
 	void warning( void );
 	void error( void );
 
+	typedef void(Harl::*ptrf)(void);
 	static std::string	_levels[4];
+	static ptrf	fLevels[4];
 
-	// static void	(*_f_levels[4])(void);
-	// void	(*_f_levels[4])(void);
-
-public:
-	Harl();
-	~Harl();
-	void complainSwitch( std::string level );
-	void complain( std::string level );
 };
-
-// typedef	void (Harl::*HarlMemFn[])( void );

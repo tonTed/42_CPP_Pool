@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:56:43 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/05 11:52:38 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/24 13:46:06 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ void Harl::complainSwitch( std::string level ){
 	
 	size_t	level_num = -1;
 	for (size_t i = 0; i < this->_levels->length(); i++)
+	{
 		if (level == this->_levels[i])
-				level_num = i;
+		{
+			level_num = i;
+			break;	
+		}
+	}
 	
 	switch (level_num)
 	{
@@ -63,14 +68,12 @@ void Harl::complainSwitch( std::string level ){
 
 void Harl::complain( std::string level ){
 	
-	void (Harl::*_f_levels[4])(void) = { &Harl::info, &Harl::debug, &Harl::warning, &Harl::error };
-	
 	size_t	len_levels = this->_levels->length();
 	for (size_t i = 0; i < len_levels; i++){
 		if (level == this->_levels[i]){
 			while (i < len_levels){
 				std::cout << "[ " + this->_levels[i] + " ]" << std::endl;
-				(this->*_f_levels[i])();
+				(this->*fLevels[i])();
 				i++;
 				std::cout << std::endl;
 			}
@@ -80,4 +83,6 @@ void Harl::complain( std::string level ){
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
-std::string	Harl::_levels[] = {"INFO", "DEBUG", "WARNING", "ERROR"};
+std::string	Harl::_levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+Harl::ptrf	Harl::fLevels[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
