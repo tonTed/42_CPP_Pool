@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:30:16 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/23 19:12:12 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/23 19:32:48 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,20 @@ void	Converter::convertAll(void){
 
 	switch (flag) {
 		case T_INT:
-			_int = std::stoi(_literal);
-			_float = static_cast<float>(_int);
-			_double = static_cast<double>(_int);
-			_char = convertToChar();
+			try {
+				
+				_int = std::stoi(_literal); 
+				_float = static_cast<float>(_int);
+				_double = static_cast<double>(_int);
+				_char = convertToChar();
+			
+			} catch(std::out_of_range)
+			{
+				_intOut = "impossible"; 
+				_charOut = "impossible";
+				_floatOut = "impossible";
+				_doubleOut = "impossible";
+			};
 			break;
 		case T_FLOAT:
 			_float = std::stof(_literal);
@@ -143,12 +153,7 @@ char	Converter::convertToChar(void){
 void	Converter::printConversions(void){
 
 	std::cout << "char: " << _charOut << std::endl;
-	std::cout << "int: " << _int << std::endl;
-	std::cout << std::fixed;
-	std::cout << std::setprecision(2);
-	std::cout << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
-
-	std::cout << _charOut.length() << std::endl;
-
+	std::cout << "int: " << _intOut << std::endl;
+	std::cout << "float: " << _floatOut << std::endl;
+	std::cout << "double: " << _doubleOut << std::endl;
 }; 
