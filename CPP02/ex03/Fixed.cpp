@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:49:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/24 14:50:01 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/27 20:33:51 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 #include <math.h>
 #include <bitset>
 
@@ -21,7 +22,7 @@ Fixed::Fixed(int const number){
 };
 
 Fixed::Fixed(float const number){
-	this->_number = int(number * float(1 << this->_decimals) + (number >= 0 ? 0.5 : -0.5));
+	this->_number = int(number * roundf(float(1 << this->_decimals)));
 };
 
 Fixed::Fixed(Fixed const & src){ *this = src; };
@@ -57,27 +58,27 @@ int Fixed::toInt() const{
 }
 
 bool	Fixed::operator>(Fixed const & rhs) const {
-	return (this->toFloat() > rhs.toFloat());
+	return (_number > rhs._number);
 };
 
 bool	Fixed::operator<(Fixed const & rhs) const {
-	return (this->toFloat() < rhs.toFloat());
+	return (_number < rhs._number);
 };
 
 bool	Fixed::operator>=(Fixed const & rhs) const {
-	return (this->toFloat() >= rhs.toFloat());
+	return (_number >= rhs._number);
 };
 
 bool	Fixed::operator<=(Fixed const & rhs) const {
-	return (this->toFloat() <= rhs.toFloat());
+	return (_number <= rhs._number);
 };
 
 bool	Fixed::operator==(Fixed const & rhs) const {
-	return (this->toFloat() == rhs.toFloat());
+	return (_number == rhs._number);
 };
 
 bool	Fixed::operator!=(Fixed const & rhs) const {
-	return (this->toFloat() != rhs.toFloat());
+	return (_number != rhs._number);
 };
 
 Fixed	Fixed::operator+(Fixed const & rhs) const {

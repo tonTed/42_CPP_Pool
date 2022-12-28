@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:38:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/24 17:19:37 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/27 21:24:27 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,9 @@ bool	bsp(Point const & a, Point const & b, Point const & c, Point const & point)
 
 	
 	Fixed TotalArea = CalcTriArea(a, b, c);
-
-	std::cout << TotalArea << std::endl;
-
 	Fixed Area1 = CalcTriArea(point, b, c);
-
-	// std::cout << Area1 << std::endl;
-
 	Fixed Area2 = CalcTriArea(point, a, c);
-
-	// std::cout << Area2 << std::endl;
-
 	Fixed Area3 = CalcTriArea(point, a, b);
-	
-	std::cout << Area1 + Area2 + Area3 << std::endl;
 
-	return (Area1 + Area2 + Area3) > TotalArea ? false : true ;
+	return (Area1 + Area2 + Area3 != TotalArea) ? false : true ;
 }

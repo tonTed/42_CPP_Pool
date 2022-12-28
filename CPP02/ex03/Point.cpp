@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:59:01 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/24 16:36:16 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/27 17:25:12 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#define STRINGIFY(a)  #a
+#define VAR_NAME(a)  STRINGIFY( a)
 
 #include "Point.hpp"
 
@@ -24,3 +27,10 @@ Fixed const & Point::getX(void) const { return _x; };
 Fixed const & Point::getY(void) const { return _y; };
 
 Point &	Point::operator=(Point const & src){ (void)src; return *this; };
+
+std::ostream&	operator<<(std::ostream & o, Point & i){
+
+	o << "Point " << ": x->" << i.getX() << " - y->" << i.getY();
+
+	return o;
+}

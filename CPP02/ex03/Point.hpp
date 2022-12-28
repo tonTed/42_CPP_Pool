@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:52:49 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/24 16:25:48 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/27 17:16:14 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Fixed.hpp"
+#include <iterator>
+#include <ostream>
 
 class Point {
 
@@ -32,3 +34,5 @@ private:
 	Fixed const	_y;
 
 };
+
+std::ostream&	operator<<(std::ostream & o, Point & i);
