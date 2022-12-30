@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:49:00 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/27 20:33:51 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/30 08:25:56 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,9 @@ Fixed Fixed::operator--(int){
 	return (old);
 };
 
-
+bool	Fixed::operator!(void){
+	return _number == 0 ? true : false;
+}
 
 Fixed const &	Fixed::min(Fixed const & lhs, Fixed const & rhs){
 

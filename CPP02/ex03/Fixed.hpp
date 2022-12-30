@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:35:46 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/24 14:49:30 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/30 08:20:50 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ public:
 	Fixed	operator++(int);
 	Fixed &	operator--(void);
 	Fixed	operator--(int);
+
+	bool	operator!(void);
 
 	/* GETTERS */
 	int		getRawBits( void ) const;

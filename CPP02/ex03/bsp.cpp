@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:38:04 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/27 21:24:27 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/30 08:23:12 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ bool	bsp(Point const & a, Point const & b, Point const & c, Point const & point)
 	Fixed Area2 = CalcTriArea(point, a, c);
 	Fixed Area3 = CalcTriArea(point, a, b);
 
-	return (Area1 + Area2 + Area3 != TotalArea) ? false : true ;
+	if ( !Area1 || !Area2 || !Area3 || Area1 + Area2 + Area3 != TotalArea)
+		return false;
+	return true;
 }
