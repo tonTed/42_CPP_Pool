@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:30:16 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/23 19:32:48 by tblanco          ###   ########.fr       */
+/*   Updated: 2022/12/27 21:39:44 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ void	Converter::convertAll(void){
 				_float = static_cast<float>(_int);
 				_double = static_cast<double>(_int);
 				_char = convertToChar();
+
+				_floatOut = std::to_string(_float);
+				_doubleOut = std::to_string(_double);
 			
 			} catch(std::out_of_range)
 			{
