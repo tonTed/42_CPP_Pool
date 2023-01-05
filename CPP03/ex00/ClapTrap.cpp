@@ -30,7 +30,7 @@ void	ClapTrap::attack(std::string target){
 		std::cout << "ClapTrap " + this->_name + " attacks " + target  + ", causing " << 
 		this->_attackDamage <<  " points of damage!" << std::endl;
 	else
-		std::cout << "ClapTrap " + this->_name + " is dead." << std::endl;
+		std::cout << "ClapTrap " + this->_name + " can't attack." << std::endl;
 };
 
 void	ClapTrap::takeDamage(unsigned int amount){
