@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:54:55 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/16 22:32:47 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 13:51:46 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ private:
 
 };
 
-class GradeTooLowException : public std::exception {
-		private:
-			std::string _msg;
+// class GradeTooLowException : public std::exception {
+// 		private:
+// 			std::string _msg;
 		
-		public:
-			GradeTooLowException(void) throw();
-			~GradeTooLowException() throw();
-			GradeTooLowException(std::string &msg) {
-				_msg += msg;
-			};
+// 		public:
+// 			GradeTooLowException(void) throw();
+// 			~GradeTooLowException() throw();
+// 			GradeTooLowException(std::string &msg) {
+// 				_msg += msg;
+// 			};
 
-			const char* what() const throw();
-};
+// 			const char* what() const throw();
+// };
 
 std::ostream&	operator<<(std::ostream& o, Form const & i);
