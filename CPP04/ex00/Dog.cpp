@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:08:15 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/05 10:56:44 by tblanco          ###   ########.fr       */
+/*   Updated: 2023/01/05 10:58:56 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog(void){
 
-	type = "dog";
+	type = "Dog";
 	std::cout << "A Dog has been constructed" << std::endl;
 };
 

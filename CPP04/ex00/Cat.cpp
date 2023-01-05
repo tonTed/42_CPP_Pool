@@ -6,7 +6,7 @@
 /*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 19:54:15 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/05 10:56:37 by tblanco          ###   ########.fr       */
+/*   Updated: 2023/01/05 10:58:52 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat(void){
 
-	type = "cat";
+	type = "Cat";
 	std::cout << "A Cat has been constructed" << std::endl;
 };
 
