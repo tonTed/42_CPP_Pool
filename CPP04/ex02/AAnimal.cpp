@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 19:05:09 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/12 22:17:57 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 11:12:28 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ AAnimal &	AAnimal::operator=(AAnimal const & src){
 	}
 	return (*this);
 };
-
-void	AAnimal::makeSound(void) const {
-
-	std::cout << "A sound of an unknown AAnimal!" << std::endl;
-}
 
 std::string const & AAnimal::getType(void) const {
 
