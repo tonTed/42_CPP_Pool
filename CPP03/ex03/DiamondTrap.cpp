@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:35:14 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/12 00:14:52 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:36:18 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void){};
 
@@ -36,7 +37,11 @@ DiamondTrap &	DiamondTrap::operator=(DiamondTrap const & rhs){
 	return (*this);
 }
 
-void DiamondTrap::whoAmI() const
+void	DiamondTrap::attack(const std::string &target){
+	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI() const
 {
     std::cout << "ClapTrap: " << ClapTrap::_name << "| DiamondTrap: " << _name << '\n';
 }

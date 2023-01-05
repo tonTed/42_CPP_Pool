@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:32:36 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/11 20:28:17 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:33:50 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int main()
 	DiamondTrap	p("ted");
 
 	p.whoAmI();
+
+	p.attack("idk");
 
 	return 0;
 }

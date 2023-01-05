@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:33:00 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/11 20:48:59 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:35:27 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	DiamondTrap &	operator=(DiamondTrap const & rhs);
 
 	void	whoAmI() const;
+	void	attack(const std::string &target);
 
 private:
 	DiamondTrap(void);
