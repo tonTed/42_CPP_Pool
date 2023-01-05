@@ -47,6 +47,14 @@ void	ClapTrap::takeDamage(unsigned int amount){
 	}
 };
 
+void	ClapTrap::beRepaired(unsigned int amount){
+
+	if (this->_hitPoints && this->_energyPoints--)
+		this->_hitPoints += amount;
+	else
+		std::cout << "ClapTrap " + this->_name + " can't fix itself." << std::endl;
+};
+
 std::string		ClapTrap::getName() const { return (_name); };
 unsigned int	ClapTrap::getHitPoints() const { return (_hitPoints); };
 unsigned int	ClapTrap::getEnergyPoints() const { return (_energyPoints); };
@@ -56,14 +64,6 @@ void	ClapTrap::setName(std::string name) { _name = name; };
 void	ClapTrap::setHitPoints(unsigned int amount) { _hitPoints = amount; };
 void	ClapTrap::setEnergyPoints(unsigned int amount) { _energyPoints = amount; };
 void	ClapTrap::setAttackeDamage(unsigned int amount) { _attackDamage = amount; };
-
-void	ClapTrap::beRepaired(unsigned int amount){
-
-	if (this->_hitPoints && this->_energyPoints--)
-		this->_hitPoints += amount;
-	else
-		std::cout << "ClapTrap " + this->_name + " is dead." << std::endl;
-};
 
 std::ostream &	operator<<(std::ostream & o, ClapTrap const & i){
 	o << "\nClaptrap [ " + i.getName() + " ]" << std::endl;
