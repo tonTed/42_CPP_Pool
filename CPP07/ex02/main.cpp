@@ -4,19 +4,31 @@
 int main(int, char**)
 {
 
-	int * a = new int();
-	std::cout << a << std::endl;
-	std::cout << *a << std::endl;
+	// int * a = new int();
+	// std::cout << a << std::endl;
+	// std::cout << *a << std::endl;
 
-	Array<int> c;
-	std::cout << c._array << std::endl;
-	std::cout << *c._array << std::endl;
+	// Array<int> c;
+	// std::cout << c._array << std::endl;
+	// std::cout << *c._array << std::endl;
 
 	Array<int> b(5);
 	std::cout << b._array << std::endl;
 	std::cout << *b._array << std::endl;
+	b._array[0] = 5;
+	b._array[1] = 7;
+	std::cout << b._array[0] << std::endl;
+	std::cout << b._array[1] << std::endl;
 
+	Array<int> d;
 
+	d = Array<int>(b);
+
+	// std::cout << d._array[0] << std::endl;
+
+	// d._array[0] = 9;
+	// std::cout << d._array[0] << std::endl;
+	// std::cout << b._array[0] << std::endl;
 	
 	// std::cout << b->_array << std::endl;
 
