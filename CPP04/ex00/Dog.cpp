@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:08:15 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/12 21:26:16 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:56:44 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Dog&	Dog::operator=(Dog const & src){
 	if (this != &src){
 		this->type = src.type;
 	}
-
 	return (*this);
 };
 

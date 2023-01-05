@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 19:54:15 by tonted            #+#    #+#             */
-/*   Updated: 2022/12/12 20:00:13 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:56:37 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-
 
 Cat::Cat(void){
 
@@ -29,7 +28,6 @@ Cat::~Cat(void){
 Cat&	Cat::operator=(Cat const & src){
 
 	if (this != &src){
-
 		this->type = src.type;
 	}
 	return (*this);
