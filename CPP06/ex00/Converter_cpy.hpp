@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:41 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/11 09:29:15 by tonted           ###   ########.fr       */
+/*   Updated: 2022/12/23 17:54:11 by tblanco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,23 @@ public:
 
 private:
 	Converter(void);
+	
+	void		setFlag(void);
+	void		convertAll(void);
+	char		convertToChar(void);
 
 	std::string	_literal;
+	char		_flag;
+
+	std::string	_charOut;
+	std::string	_intOut;
+	std::string	_floatOut;
+	std::string	_doubleOut;
+
+	char		_char;
+	int			_int;
+	float		_float;
+	double		_double;
 
 };
 
