@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:30:16 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/12 18:38:17 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:58:03 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,71 +23,6 @@ void print_byte_as_bits(char val) {
 		printf("%c", (val & (1 << i)) ? '1' : '0');
 	}
   std::cout << std::endl;
-}
-
-Converter::Converter(std::string literal) : _literal(literal){
-	if (!isPseudoLiteral())
-		return ;
-	// setFlag();
-	// if (!_flag)
-	// {
-	// 	std::cout << "Bad input!" << std::endl;
-	// 	return ;
-	// }
-	// convertAll();
-	// printConversions();
-};
-
-Converter::Converter(Converter const & src){ *this = src; };
-
-Converter::~Converter(void){};
-
-Converter&	Converter::operator=(Converter const & src){
-	if (this != &src){
-		_flag = src._flag;
-		_char = src._char;
-		_int = src._int;
-		_float = src._float;
-		_double = src._double;
-	}
-
-	return (*this);
-};
-
-Converter::Converter(void){};
-
-void	Converter::setFlag(void){
-	if (_literal.length() == 1)
-	{
-		if (std::isdigit(_literal[0]))
-			_flag = T_INT;
-		else
-			_flag = T_CHAR;
-	}
-	else {
-		_flag = T_INT;
-
-		int i = 0;
-		if (_literal[0] == '-' && ++i)
-			_flag |= NEG;
-		while (_flag && _literal[i]){
-			if (isdigit(_literal[i]))
-				;
-			else if (i && _literal[i] == '.' && _literal[i + 1])
-			{
-				if (_flag &= T_FLOAT | T_DOUBLE)
-					_flag = BAD_INPUT;
-				else
-					_flag = T_DOUBLE;
-			}
-			else if (i && _literal[i] == 'f' && !_literal[i + 1] && isdigit(_literal[i - 1]))
-				_flag = T_FLOAT;
-			else
-				_flag = BAD_INPUT;
-			i++;
-		}
-	};
-	print_byte_as_bits(_flag);
 }
 
 bool	Converter::isPseudoLiteral(void){
@@ -120,6 +55,71 @@ bool	Converter::isPseudoLiteral(void){
 	}
 	return true;
 };
+
+bool	Converter::setFlag(void){
+	if (_literal.length() == 1)
+	{
+		if (std::isdigit(_literal[0]))
+			_flag = T_INT;
+		else
+			_flag = T_CHAR;
+	}
+	else {
+		_flag = T_INT;
+
+		int i = 0;
+		if (_literal[0] == '-' && ++i)
+			_flag |= NEG;
+		while (_flag && _literal[i]){
+			if (isdigit(_literal[i]))
+				;
+			else if (i && _literal[i] == '.' && _literal[i + 1])
+			{
+				if (_flag &= T_FLOAT | T_DOUBLE)
+					_flag = BAD_INPUT;
+				else
+					_flag = T_DOUBLE;
+			}
+			else if (i && _literal[i] == 'f' && !_literal[i + 1] && isdigit(_literal[i - 1]))
+				_flag = T_FLOAT;
+			else
+				_flag = BAD_INPUT;
+			i++;
+		}
+	};
+	if (_flag)
+		return true;
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+	return false;
+}
+
+Converter::Converter(std::string literal) : _literal(literal){
+	if (!isPseudoLiteral() || !setFlag())
+		return ;
+	// convertAll();
+	// printConversions();
+};
+
+Converter::Converter(Converter const & src){ *this = src; };
+
+Converter::~Converter(void){};
+
+Converter&	Converter::operator=(Converter const & src){
+	if (this != &src){
+		_flag = src._flag;
+		_char = src._char;
+		_int = src._int;
+		_float = src._float;
+		_double = src._double;
+	}
+
+	return (*this);
+};
+
+Converter::Converter(void){};
 
 void	Converter::convertAll(void){
 

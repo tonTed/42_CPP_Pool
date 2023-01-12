@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:41 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/12 18:28:45 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:43:29 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ public:
 private:
 	Converter(void);
 	
-	void		setFlag(void);
 	bool		isPseudoLiteral(void);
+	bool		setFlag(void);
 	void		convertAll(void);
 	char		convertToChar(void);
 
