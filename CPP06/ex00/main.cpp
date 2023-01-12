@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:19:51 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/06 09:46:26 by tblanco          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:36:09 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,7 @@ int	main(int ac, char *av[]){
 		return 0;
 	}
 
-	// Converter toConvert(av[1]);
+	Converter toConvert(av[1]);
 
-	std::stringstream	ss;
-
-	int		_int;
-	char	_char;
-	float	_float;
-	double	_double;
-
-	ss << av[1];
-
-	ss >> _int;		std::cout << "int: " << _int << std::endl;
-	ss >> _char;	std::cout << "char: " << _char << std::endl;
-	ss >> _float;	std::cout << "float: " << _float << std::endl;
-	ss >> _double;	std::cout << "double: " << _double<< std::endl;
-
-	
 	return 0;
 }

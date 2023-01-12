@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblanco <tblanco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:41 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/23 17:54:11 by tblanco          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:28:45 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ private:
 	Converter(void);
 	
 	void		setFlag(void);
+	bool		isPseudoLiteral(void);
 	void		convertAll(void);
 	char		convertToChar(void);
 
@@ -52,6 +53,8 @@ private:
 	int			_int;
 	float		_float;
 	double		_double;
+
+	static	std::string const	_pseudoLiterals[8];
 
 };
 

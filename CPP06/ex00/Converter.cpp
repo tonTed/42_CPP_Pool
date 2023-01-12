@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:30:16 by tblanco           #+#    #+#             */
-/*   Updated: 2022/12/27 21:39:44 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:38:17 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ void print_byte_as_bits(char val) {
 }
 
 Converter::Converter(std::string literal) : _literal(literal){
-	setFlag();
-	if (!_flag)
-	{
-		std::cout << "Bad input!" << std::endl;
-		return;
-	}
-	convertAll();
-	printConversions();
+	if (!isPseudoLiteral())
+		return ;
+	// setFlag();
+	// if (!_flag)
+	// {
+	// 	std::cout << "Bad input!" << std::endl;
+	// 	return ;
+	// }
+	// convertAll();
+	// printConversions();
 };
 
 Converter::Converter(Converter const & src){ *this = src; };
@@ -87,6 +89,37 @@ void	Converter::setFlag(void){
 	};
 	print_byte_as_bits(_flag);
 }
+
+bool	Converter::isPseudoLiteral(void){
+	
+	int i = -1;
+	for (int _i = 0; _i < 8; _i++) 
+	{
+		if (_pseudoLiterals[_i] == _literal)
+		{
+			i = _i;
+			break;
+		}
+	}
+	
+	if (i != -1)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		if (i % 2 != 0)
+		{
+			std::cout << "float: " << _literal << std::endl;
+			std::cout << "double: " << _literal.erase(_literal.length() - 1, 1) << std::endl;
+		}
+		else 
+		{
+			std::cout << "float: " << _literal << "f" << std::endl;
+			std::cout << "double: " << _literal << std::endl;
+		}
+		return false;
+	}
+	return true;
+};
 
 void	Converter::convertAll(void){
 
@@ -159,4 +192,6 @@ void	Converter::printConversions(void){
 	std::cout << "int: " << _intOut << std::endl;
 	std::cout << "float: " << _floatOut << std::endl;
 	std::cout << "double: " << _doubleOut << std::endl;
-}; 
+};
+
+std::string	const Converter::_pseudoLiterals[] = {"inf", "inff", "+inf", "+inff",  "-inf", "-inff", "nan", "nanf"};
