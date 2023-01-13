@@ -6,18 +6,16 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:35:59 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/12 21:35:49 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 21:55:43 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <cstddef>
-#include <cstring>
 #include <iostream>
-#include <sys/_types/_size_t.h>
+#include <exception>
 
-#define DEBUG 1
+#define DEBUG 0
 
 template <typename T>
 class Array {
@@ -45,9 +43,17 @@ public:
 
 		return *this;
 	}
+
+	T&	operator[](size_t i){
+		if (i < 0 || i >= _size)
+			throw std::range_error("index between 0 and " + std::to_string(_size - 1) + ".");
+		else
+			return _array[i];
+	}
 	
-	T		*_array;
 
 private:
+
+	T		*_array;
 	size_t	_size;
 };
