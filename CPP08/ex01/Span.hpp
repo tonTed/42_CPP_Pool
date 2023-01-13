@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 01:13:01 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/13 17:41:16 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/13 18:09:30 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,18 @@ public:
 
 	void	addNumber(int toAdd);
 
+	int	shortestSpan(void);
+	int	longestSpan(void);
+
 private:
 	Span(void);
 
 	unsigned int	_size;
 	unsigned int	_currentElement;
+
+	int				_min;
+	int				_max;
+
 	int*			_tab;
 
 };
