@@ -6,13 +6,14 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:41 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/12 18:43:29 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 20:18:15 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 #include <ostream>
 
 #define BAD_INPUT 0x0
@@ -38,21 +39,18 @@ private:
 	
 	bool		isPseudoLiteral(void);
 	bool		setFlag(void);
+	
 	void		convertAll(void);
-	char		convertToChar(void);
+
+	void		fromChar(void);
+	void		fromInt(void);
+	void		fromFloat(void);
+	void		fromDouble(void);
+
+	void		printImpossible(void);
 
 	std::string	_literal;
 	char		_flag;
-
-	std::string	_charOut;
-	std::string	_intOut;
-	std::string	_floatOut;
-	std::string	_doubleOut;
-
-	char		_char;
-	int			_int;
-	float		_float;
-	double		_double;
 
 	static	std::string const	_pseudoLiterals[8];
 
