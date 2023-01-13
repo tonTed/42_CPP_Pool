@@ -13,16 +13,23 @@ int main(int, char**)
 	// std::cout << *c._array << std::endl;
 
 	Array<int> b(5);
+	std::cout << &b << std::endl;
 	std::cout << b._array << std::endl;
 	std::cout << *b._array << std::endl;
 	b._array[0] = 5;
 	b._array[1] = 7;
 	std::cout << b._array[0] << std::endl;
 	std::cout << b._array[1] << std::endl;
+	std::cout << std::endl;
 
 	Array<int> d;
+	std::cout << &d << std::endl;
+	std::cout << std::endl;
 
 	d = Array<int>(b);
+	std::cout << &d << std::endl;
+	std::cout << &b << std::endl;
+	std::cout << std::endl;
 
 	// std::cout << d._array[0] << std::endl;
 
