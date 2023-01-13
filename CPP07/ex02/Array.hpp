@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:35:59 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/12 21:55:43 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/12 21:58:29 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <exception>
+#include <sys/_types/_size_t.h>
 
 #define DEBUG 0
 
@@ -51,6 +52,7 @@ public:
 			return _array[i];
 	}
 	
+	size_t	size(){ return _size; };
 
 private:
 
