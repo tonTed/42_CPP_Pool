@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 01:15:28 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/13 18:43:38 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:10:05 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <cstring>
 #include <exception>
 #include <stdexcept>
+#include <string>
 
 Span::Span(void){};
 
@@ -49,6 +50,14 @@ void	Span::addNumber(int toAdd){
 	_currentElement++;
 
 	if (DEBUG) { std::cout << "number: " << toAdd << " added in span." << std::endl; }
+}
+
+void	Span::addNumber(int toAdd, unsigned int amount){
+	if (_size - _currentElement < amount)
+		throw std::out_of_range("Can't be add " + std::to_string(amount) + " elements in Span.");
+	for (unsigned int i = 0; i < amount; i++) {
+		addNumber(toAdd);
+	}
 }
 
 int	Span::shortestSpan(void){

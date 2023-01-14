@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:33:21 by tblanco           #+#    #+#             */
-/*   Updated: 2023/01/13 18:48:43 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:03:30 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,13 @@ int main( void ) {
 	}
 	std::cout << sp2.shortestSpan() << std::endl;
 	std::cout << sp2.longestSpan() << std::endl;
+
+
+	Span sp3(500);
+	sp3.addNumber(42, 250);
+	sp3.addNumber(21, 240);
+	try { sp3.addNumber(21, 11); }
+	catch (std::exception &e) { std::cout << "execption catch: " << e.what() << std::endl; e.what(); }
+	sp3.addNumber(-42, 10);
 	
 }

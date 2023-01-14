@@ -6,7 +6,7 @@
 /*   By: tonted <tonted@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 01:13:01 by tonted            #+#    #+#             */
-/*   Updated: 2023/01/13 18:09:30 by tonted           ###   ########.fr       */
+/*   Updated: 2023/01/13 18:55:53 by tonted           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	~Span(void);
 
 	void	addNumber(int toAdd);
+	void	addNumber(int toAdd, unsigned int amount);
 
 	int	shortestSpan(void);
 	int	longestSpan(void);
