@@ -11,11 +11,6 @@ PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 		Log::logContainer(_listInput, "Before<List> ");
 		Log::logContainer(_dequeInput, "Before<Deque>");
 	}
-	catch (std::out_of_range & e)
-	{
-		std::cout << RED << "Error: " << RESET << e.what() << std::endl;
-		return;
-	}
 	catch (std::exception & e) {
 		std::cout << RED << "Error: " << RESET << e.what() << std::endl;
 		return;
