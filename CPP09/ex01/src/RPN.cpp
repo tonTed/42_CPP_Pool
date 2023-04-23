@@ -38,6 +38,11 @@ void	RPN::_engine() {	Log::logFunction(__FUNCTION__);
 		ss << input;
 		if (!_updateStack(_stack, ss))
 			continue;
+		if (_stack.size() < 3)
+		{
+			std::cout << RED << "Error: " << RESET << "Not enough operands" << std::endl;
+			continue;
+		}
 	}
 }
 
