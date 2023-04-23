@@ -15,11 +15,11 @@ PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 		Log::logContainer(_dequeInput, "Before<Deque>");
 
 		listTime = _currentTime();
-		_mergeInsertSort(_listInput, _listInput.begin(), _listInput.end(), THRESHOLD);
+		_mergeInsertSort<std::list<unsigned int> >( _listInput.begin(), _listInput.end(), THRESHOLD);
 		listTime = _currentTime() - listTime;
 
 		dequeTime = _currentTime();
-		_mergeInsertSort(_dequeInput, _dequeInput.begin(), _dequeInput.end(), THRESHOLD);
+		_mergeInsertSort<std::deque<unsigned int> >( _dequeInput.begin(), _dequeInput.end(), THRESHOLD);
 		dequeTime = _currentTime() - dequeTime;
 
 		Log::logContainer(_listInput, "After<List> ");
@@ -84,10 +84,8 @@ double	PmergeMe::_currentTime() {	Log::logToConsole(__FUNCTION__);
 }
 
 template<typename T>
-void	PmergeMe::_merge(T &container, typename T::iterator begin, typename T::iterator mid, typename T::iterator end) {	Log::logFunction(__FUNCTION__);
+void	PmergeMe::_merge(typename T::iterator begin, typename T::iterator mid, typename T::iterator end) {	Log::logFunction(__FUNCTION__);
 
-
-	(void)container;
 	// Copy tabs
 	T	tab1;
 	T	tab2;
@@ -139,7 +137,7 @@ void	PmergeMe::_merge(T &container, typename T::iterator begin, typename T::iter
 }
 
 template<typename T>
-void 	PmergeMe::_mergeInsertSort(T &container, typename T::iterator begin, typename T::iterator end, int threshold) {	Log::logFunction(__FUNCTION__);
+void 	PmergeMe::_mergeInsertSort( typename T::iterator begin, typename T::iterator end, int threshold) {	Log::logFunction(__FUNCTION__);
 
 	typename T::iterator mid = std::next(begin, std::distance(begin, end) / 2);
 
@@ -151,8 +149,8 @@ void 	PmergeMe::_mergeInsertSort(T &container, typename T::iterator begin, typen
 	}
 	else
 	{
-		_mergeInsertSort(container, begin, mid, threshold);
-		_mergeInsertSort(container, std::next(mid), end, threshold);
-		_merge(container, begin, mid ,end);
+		_mergeInsertSort<T>( begin, mid, threshold);
+		_mergeInsertSort<T>( std::next(mid), end, threshold);
+		_merge<T>( begin, mid ,end);
 	}
 }

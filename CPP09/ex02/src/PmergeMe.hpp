@@ -35,10 +35,10 @@ private:
 	double	_currentTime();
 
 	template<typename T>
-	void	_mergeInsertSort(T &container, typename T::iterator begin, typename T::iterator end, int threshold);
+	void	_mergeInsertSort(typename T::iterator begin, typename T::iterator end, int threshold);
 
 	template<typename T>
-	void	_merge(T &container, typename T::iterator begin, typename T::iterator mid, typename T::iterator end);
+	void	_merge(typename T::iterator begin, typename T::iterator mid, typename T::iterator end);
 };
 
 
