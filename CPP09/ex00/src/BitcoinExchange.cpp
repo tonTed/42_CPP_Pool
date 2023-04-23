@@ -23,4 +23,19 @@ BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange const & rhs) {	Log:
 }
 
 
+std::map<std::string, std::string>	BitcoinExchange::_dayByMonth = {
+		{1,  31},
+		{2,  28},
+		{3,  31},
+		{4,  30},
+		{5,  31},
+		{6,  30},
+		{7,  31},
+		{8,  31},
+		{9,  30},
+		{10, 31},
+		{11, 30},
+		{12, 31}
+};
+
 
