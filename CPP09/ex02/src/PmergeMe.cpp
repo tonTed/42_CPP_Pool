@@ -4,6 +4,13 @@
 
 #include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
+
+	(void)av;
+	(void)ac;
+
+}
+
 PmergeMe::PmergeMe() {	Log::logFunction(__FUNCTION__);
 
 }
