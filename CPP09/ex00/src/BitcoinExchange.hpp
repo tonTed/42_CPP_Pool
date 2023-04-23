@@ -20,15 +20,18 @@ class BitcoinExchange {
 
 public:
 
-	BitcoinExchange();
+	BitcoinExchange(const std::string & inputFile);
 	~BitcoinExchange();
 	BitcoinExchange(BitcoinExchange const & src);
 	BitcoinExchange & operator=(BitcoinExchange const & rhs);
 
 private:
 
-	void	_updateDB();
-	size_t	_convertDateToTimestamp(std::string const & date);
+	void		_updateDB();
+	size_t		_convertDateToTimestamp(std::string const & date);
+	std::string _convertTimestampToDate(size_t timestamp);
+
+	void	_manageInput(const std::string & inputFile);
 
 	void	_dayByMonthUpdate();
 

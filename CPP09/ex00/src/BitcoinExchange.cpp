@@ -5,9 +5,10 @@
 #include "BitcoinExchange.hpp"
 
 
-BitcoinExchange::BitcoinExchange() {	Log::logFunction(__FUNCTION__);
+BitcoinExchange::BitcoinExchange(const std::string & inputFile) {	Log::logFunction(__FUNCTION__);
 	_dayByMonthUpdate();
 	_updateDB();
+	_manageInput(inputFile);
 }
 
 BitcoinExchange::~BitcoinExchange() {	Log::logFunction(__FUNCTION__);
@@ -50,7 +51,7 @@ void	BitcoinExchange::_updateDB() {	Log::logFunction(__FUNCTION__);
 		Log::logToConsole("File not opened");
 		exit(1);
 	}
-	Log::logMap(_db);
+//	Log::logMap(_db);
 }
 
 void	BitcoinExchange::_dayByMonthUpdate() {	Log::logFunction(__FUNCTION__);
@@ -68,7 +69,7 @@ void	BitcoinExchange::_dayByMonthUpdate() {	Log::logFunction(__FUNCTION__);
 	_dayByMonth[11] = 30;
 	_dayByMonth[12] = 31;
 
-	Log::logMap(_dayByMonth);
+//	Log::logMap(_dayByMonth);
 }
 
 size_t	BitcoinExchange::_convertDateToTimestamp(std::string const & date) {	Log::logFunction(__FUNCTION__);
@@ -84,14 +85,14 @@ size_t	BitcoinExchange::_convertDateToTimestamp(std::string const & date) {	Log:
 		day = std::stoi(date.substr(8, 2));
 	}
 	catch (std::exception & e) {
-		Log::logToConsole("Date is not valid");
-		throw std::invalid_argument("Date is not valid");
+		Log::logToConsole("Date is not valid: " + date + ".");
+		throw std::invalid_argument("bad input => " + date);
 	}
 
 	//check if date is valid
 	if (year < START_YEAR || month < 1 || month > 12 || day < 1 || day > _dayByMonth[month]) {
 		Log::logToConsole("Date is not valid");
-		throw std::invalid_argument("Date is not valid");
+		throw std::invalid_argument("bad input => " + date);
 	}
 
 	//convert date to timestamp
@@ -103,7 +104,89 @@ size_t	BitcoinExchange::_convertDateToTimestamp(std::string const & date) {	Log:
 	}
 	timestamp += day;
 
-	return timestamp;
+	return --timestamp;
 }
 
+void	BitcoinExchange::_manageInput(const std::string &inputFile) {	Log::logFunction(__FUNCTION__);
 
+	std::ifstream file(inputFile);
+
+	std::string line;
+
+	std::string error = "Error: ";
+
+	if (file.is_open()) {
+		Log::logToConsole("File opened");
+		while(std::getline(file, line))
+		{
+//			Log::logToConsole("Line: " + line);
+
+			try
+			{
+
+				std::string date = line.substr(0, line.find('|'));
+				date.erase(remove_if(date.begin(), date.end(), isspace), date.end());
+//				Log::logToConsole("Date: " + date + "<");
+
+				std::string value = line.substr(line.find('|') + 1);
+				value.erase(remove_if(value.begin(), value.end(), isspace), value.end());
+//				Log::logToConsole("Value: " + value + "<");
+
+				size_t timestamp = _convertDateToTimestamp(date);
+				float amount = std::stof(value);
+//				std::cout << GREEN << value << " - " << amount << RESET << std::endl;
+
+				if (amount < 0)
+				{
+					throw std::invalid_argument("not a positive number.");
+				}
+				if (amount > 1000)
+				{
+					throw std::invalid_argument("too large a number.");
+				}
+
+				std::cout << YELLOW << _convertTimestampToDate(timestamp) << " => " << amount << " = " << amount << RESET << std::endl;
+			}
+			catch (std::out_of_range & e)
+			{
+				std::cout << RED << error + "bad input => " + line << RESET << std::endl;
+			}
+			catch (std::exception & e)
+			{
+				std::cout << MAGENTA << error + e.what() << RESET << std::endl;
+			}
+		}
+	}
+	else
+	{
+		Log::logToConsole("File not opened");
+		exit(1);
+	}
+//	Log::logMap(_db);
+}
+
+std::string	BitcoinExchange::_convertTimestampToDate(size_t timestamp) {	Log::logFunction(__FUNCTION__);
+
+	std::string date;
+
+	size_t year = timestamp / DAY_BY_YEAR + START_YEAR;
+	size_t month = 1;
+	size_t day = 1;
+
+	timestamp -= (year - START_YEAR) * DAY_BY_YEAR;
+	while (timestamp > _dayByMonth[month]) {
+		timestamp -= _dayByMonth[month];
+		month++;
+	}
+	day += timestamp;
+
+	date += std::to_string(year) + "-";
+	if (month < 10)
+		date += "0";
+	date += std::to_string(month) + "-";
+	if (day < 10)
+		date += "0";
+	date += std::to_string(day);
+
+	return date;
+}
