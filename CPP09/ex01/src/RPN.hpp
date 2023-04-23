@@ -7,6 +7,7 @@
 
 #include <stack>
 #include <sstream>
+#include <cstdlib>
 
 #include "../Log.hpp"
 
@@ -21,7 +22,7 @@ public:
 
 	void			_engine();
 	std::string		_getInput();
-	bool			_updateStack(std::stack<char> & stack, std::stringstream & ss);
+	void			_doOp(std::stringstream & ss);
 
 
 };

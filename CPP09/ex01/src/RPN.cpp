@@ -26,8 +26,6 @@ void	RPN::_engine() {	Log::logFunction(__FUNCTION__);
 
 	while (42)
 	{
-		std::stack<char>	_stack;
-
 		std::string	input = _getInput();
 
 		if (input == "quit") {
@@ -36,13 +34,8 @@ void	RPN::_engine() {	Log::logFunction(__FUNCTION__);
 
 		std::stringstream ss;
 		ss << input;
-		if (!_updateStack(_stack, ss))
-			continue;
-		if (_stack.size() < 3)
-		{
-			std::cout << RED << "Error: " << RESET << "Not enough operands" << std::endl;
-			continue;
-		}
+
+		_doOp(ss);
 	}
 }
 
@@ -54,18 +47,71 @@ std::string	RPN::_getInput() {	Log::logFunction(__FUNCTION__);
 	return input;
 }
 
-bool	RPN::_updateStack(std::stack<char> &stack, std::stringstream &ss) {	Log::logFunction(__FUNCTION__);
+void	RPN::_doOp(std::stringstream &ss) {	Log::logFunction(__FUNCTION__);
+
+	std::stack<int>	stack;
 
 	std::string token;
 
 	while (ss >> token)
 	{
-		if (token.length() != 1 || (!isdigit(token[0]) && token[0] != '+' && token[0] != '-' && token[0] != '*' && token[0] != '/'))
+
+		if (token.length() != 1)
 		{
 			std::cout << RED << "Error: " << RESET << "Invalid token: " << token << std::endl;
-			return false;
+			return;
 		}
-		stack.push(token[0]);
+		if (isdigit(token[0]))
+		{
+			Log::logToConsole("Push number: " + token + ".");
+			stack.push(std::stoi(token));
+		}
+		else if (stack.size() < 2)
+		{
+			std::cout << RED << "Error: " << RESET << "Stack must be greater than 1." << std::endl;
+			return;
+		}
+		else
+		{
+			int a = stack.top();
+			stack.pop();
+			int b = stack.top();
+			stack.pop();
+			Log::logToConsole("doOp: " + std::to_string(a) + " " + token + " " + std::to_string(b) + " .");
+			switch (token[0])
+			{
+				case '+':
+				{
+					stack.push(b + a);
+					break;
+				}
+				case '-':
+				{
+					stack.push(b - a);
+					break;
+				}
+				case '*':
+				{
+					stack.push(b * a);
+					break;
+				}
+				case '/':
+				{
+					if (a == 0)
+					{
+						std::cout << RED << "Error: " << RESET << "Divide by 0 not possible." << std::endl;
+						return;
+					}
+					stack.push(b / a);
+					break;
+				}
+				default:
+				{
+					std::cout << RED << "Error: " << RESET << "Invalid token: " << token[0] << std::endl;
+					return;
+				}
+			}
+		}
 	}
-	return true;
+	std::cout << std::to_string(stack.top()) << std::endl;
 }
