@@ -13,6 +13,7 @@
 
 #define DB_FILE "db/data.csv"
 #define START_YEAR 2000
+#define DAY_BY_YEAR 365
 
 
 class BitcoinExchange {
@@ -27,6 +28,7 @@ public:
 private:
 
 	void	_updateDB();
+	size_t	_convertDateToTimestamp(std::string const & date);
 
 	void	_dayByMonthUpdate();
 
