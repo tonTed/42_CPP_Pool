@@ -13,14 +13,13 @@
 
 # include "../Log.hpp"
 
-# define THRESHOLD 4
+# define THRESHOLD 10
 
 class PmergeMe {
 
 public:
 	PmergeMe(char **av, int ac);
 	~PmergeMe();
-
 
 private:
 	PmergeMe & operator=(const PmergeMe & rhs);
@@ -39,6 +38,9 @@ private:
 
 	template<typename T>
 	void	_merge(typename T::iterator begin, typename T::iterator mid, typename T::iterator end);
+
+	template<typename T>
+	void	_insertion(typename T::iterator begin, typename T::iterator end);
 };
 
 

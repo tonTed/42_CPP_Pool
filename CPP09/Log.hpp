@@ -5,12 +5,14 @@
 #ifndef LOG_HPP
 #define LOG_HPP
 
-#include <iostream>
-#include "colors.hpp"
 #include <map>
+#include <iostream>
+#include <typeinfo>
 
-#define DEBUG 1
-#define FUNCTION 1
+#include "colors.hpp"
+
+#define DEBUG 0
+#define FUNCTION 0
 
 class Log {
 public:

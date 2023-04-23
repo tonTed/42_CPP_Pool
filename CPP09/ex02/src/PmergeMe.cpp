@@ -87,70 +87,69 @@ template<typename T>
 void	PmergeMe::_merge(typename T::iterator begin, typename T::iterator mid, typename T::iterator end) {	Log::logFunction(__FUNCTION__);
 
 	// Copy tabs
-	T	tab1;
-	T	tab2;
-
-	typename T::iterator it;
-	for (it = begin; it != mid; ++it)
-	{
-		Log::logToConsole("Pushing (tab1): " + std::to_string(*it));
-		tab1.push_back(*it);
-	}
-	for (it = mid; it != end; ++it)
-	{
-		Log::logToConsole("Pushing (tab2): " + std::to_string(*it));
-		tab2.push_back(*it);
-	}
-	Log::logContainer(tab1, "tab1: ");
-	Log::logContainer(tab2, "tab2: ");
+	T	tab1(begin, mid);
+	T	tab2(mid, end);
 
 	// Merge two tabs into container
 	typename T::iterator it1 = tab1.begin();
 	typename T::iterator it2 = tab2.begin();
-	it = begin;
 
 	while (it1 != tab1.end() && it2 != tab2.end()) {
-		if (*it1 < *it2) {
-			*it = *it1;
-			++it1;
-		}
-		else {
-			*it = *it2;
-			++it2;
-		}
-		++it;
+		if (*it1 < *it2)
+			*begin = *(it1++);
+		else
+			*begin = *(it2++);
+		++begin;
 	}
 
-	// Copy remaining elements of tab1
-	while (it1 != tab1.end()) {
-		*it = *it1;
-		++it1;
-		++it;
+	while (it1 != tab1.end())
+	{
+		*begin = *(it1++);
+		begin++;
 	}
 
-	// Copy remaining elements of tab2
-	while (it2 != tab2.end()) {
-		*it = *it2;
-		++it2;
-		++it;
+	while (it2 != tab2.end())
+	{
+		*begin = *(it2++);
+		begin++;
+	}
+}
+
+template<typename T>
+void	PmergeMe::_insertion(typename T::iterator begin, typename T::iterator end) {	Log::logFunction(__FUNCTION__);
+
+	if (begin == end)
+		return;
+
+	unsigned int	tmp;
+
+	for (typename T::iterator it = begin; it != end; it++)
+	{
+		typename T::iterator prev;
+		typename T::iterator cur = it;
+		if (cur != begin)
+			prev = std::prev(cur);
+		while (cur != begin && *prev > *cur)
+		{
+			tmp = *prev;
+			*prev = *cur;
+			*cur = tmp;
+			cur--;
+			prev = std::prev(cur);
+		}
 	}
 }
 
 template<typename T>
 void 	PmergeMe::_mergeInsertSort( typename T::iterator begin, typename T::iterator end, int threshold) {	Log::logFunction(__FUNCTION__);
 
-	typename T::iterator mid = std::next(begin, std::distance(begin, end) / 2);
-
-	Log::logToConsole("len tab: " + std::to_string(std::distance(begin, end)));
-
-	if (std::distance(begin, end) <= threshold)
-	{
-		//insertionSort
-	}
+	if (std::distance(begin, end) < threshold)
+		_insertion<T>(begin, end);
 	else
 	{
-		_mergeInsertSort<T>( begin, mid, threshold);
-		_mergeInsertSort<T>( std::next(mid), end, threshold);
-		_merge<T>( begin, mid ,end);
+		typename T::iterator mid = std::next(begin, std::distance(begin, end) / 2);
+		_mergeInsertSort<T>(begin, mid, THRESHOLD);
+		_mergeInsertSort<T>(mid, end, THRESHOLD);
+		_merge<T>(begin, mid, end);
 	}
 }
