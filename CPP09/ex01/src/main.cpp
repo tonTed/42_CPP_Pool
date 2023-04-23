@@ -17,5 +17,7 @@ int main(int argc, char **argv) {	Log::logFunction(__FUNCTION__);
 	(void)argc;
 	(void)argv;
 
+	RPN rpn;
+
 	return 0;
 }

@@ -9,6 +9,13 @@
 
 class RPN {
 
+public:
+	RPN();
+	RPN(RPN const & src);
+	~RPN();
+
+	RPN & operator=(RPN const & rhs);
+
 };
 
 
