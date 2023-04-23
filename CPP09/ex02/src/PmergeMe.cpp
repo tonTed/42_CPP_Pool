@@ -6,10 +6,21 @@
 
 PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 
+	float	listTime;
+	float	dequeTime;
+
 	try {
 		_fillListInput(av, ac);
 		Log::logContainer(_listInput, "Before<List> ");
 		Log::logContainer(_dequeInput, "Before<Deque>");
+
+		listTime = _mergeInsertSortList();
+		dequeTime = _mergeInsertSortDeque();
+		Log::logContainer(_listInput, "After<List> ");
+		Log::logContainer(_dequeInput, "After<Deque>");
+
+		std::cout << GREEN << "Time to process a range of " << _listInput.size() << " elements with std::list  : " << RESET << std::fixed << listTime << " ms." << std::endl;
+		std::cout << GREEN << "Time to process a range of " << _dequeInput.size() << " elements with std::deque : " << RESET << std::fixed << dequeTime << " ms." << std::endl;
 	}
 	catch (std::exception & e) {
 		std::cout << RED << "Error: " << RESET << e.what() << std::endl;
@@ -59,3 +70,27 @@ void	PmergeMe::_fillListInput(char **av, int ac) {	Log::logFunction(__FUNCTION__
 		av++;
 	}
 }
+
+double	PmergeMe::_mergeInsertSortList() {	Log::logToConsole(__FUNCTION__);
+	double startTime = _currentTime();
+
+	double endTime = _currentTime();
+
+	return endTime - startTime;
+}
+
+double	PmergeMe::_mergeInsertSortDeque() {	Log::logToConsole(__FUNCTION__);
+	double startTime = _currentTime();
+
+	double endTime = _currentTime();
+
+	return endTime - startTime;
+}
+
+double	PmergeMe::_currentTime() {	Log::logToConsole(__FUNCTION__);
+	struct timeval currentTime;
+	gettimeofday(&currentTime, nullptr);
+	return static_cast<double>(currentTime.tv_sec) + (static_cast<double>(currentTime.tv_usec) / 1000000.0);
+}
+
+
