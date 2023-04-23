@@ -23,6 +23,16 @@ public:
 		if (FUNCTION)
 			std::cout << MAGENTA << "[FUNCTION] " << str << std::endl;
 	}
+
+	template<typename map_key, typename map_val>
+	static void logMap(std::map<map_key, map_val> const & map) {
+		if (DEBUG) {
+			std::cout << BLUE << "[DEBUG]    " << RESET << "Map content:" << std::endl;
+			for (typename std::map<map_key, map_val>::const_iterator it = map.begin(); it != map.end(); ++it) {
+				std::cout << BLUE << "[DEBUG]    " << RESET << it->first << " => " << it->second << std::endl;
+			}
+		}
+	}
 };
 
 #endif //LOG_HPP
