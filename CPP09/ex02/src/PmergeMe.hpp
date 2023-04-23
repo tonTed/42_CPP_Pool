@@ -34,7 +34,7 @@ private:
 	double	_currentTime();
 
 	template<typename T>
-	double _mergeInsertSort(T & container);
+	void _mergeInsertSort(T & container);
 };
 
 

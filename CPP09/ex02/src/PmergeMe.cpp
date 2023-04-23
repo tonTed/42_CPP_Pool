@@ -6,16 +6,22 @@
 
 PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 
-	float	listTime;
-	float	dequeTime;
+	double	listTime;
+	double	dequeTime;
 
 	try {
 		_fillListInput(av, ac);
 		Log::logContainer(_listInput, "Before<List> ");
 		Log::logContainer(_dequeInput, "Before<Deque>");
 
-		listTime = _mergeInsertSort(_listInput);
-		dequeTime = _mergeInsertSort(_dequeInput);
+		listTime = _currentTime();
+		_mergeInsertSort(_listInput);
+		listTime = _currentTime() - listTime;
+
+		dequeTime = _currentTime();
+		_mergeInsertSort(_dequeInput);
+		dequeTime = _currentTime() - dequeTime;
+
 		Log::logContainer(_listInput, "After<List> ");
 		Log::logContainer(_dequeInput, "After<Deque>");
 
@@ -78,12 +84,6 @@ double	PmergeMe::_currentTime() {	Log::logToConsole(__FUNCTION__);
 }
 
 template<typename T>
-double PmergeMe::_mergeInsertSort(T &container) {	Log::logFunction(__FUNCTION__);
+void PmergeMe::_mergeInsertSort(T &container) {	Log::logFunction(__FUNCTION__);
 	(void)container;
-
-	double startTime = _currentTime();
-
-	double endTime = _currentTime();
-
-	return endTime - startTime;
 }
