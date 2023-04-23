@@ -30,11 +30,11 @@ private:
 	std::deque<unsigned int>	_dequeInput;
 
 	void	_fillListInput(char **av, int ac);
-	double	_mergeInsertSortList();
-	double	_mergeInsertSortDeque();
 
 	double	_currentTime();
 
+	template<typename T>
+	double _mergeInsertSort(T & container);
 };
 
 

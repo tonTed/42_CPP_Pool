@@ -14,8 +14,8 @@ PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 		Log::logContainer(_listInput, "Before<List> ");
 		Log::logContainer(_dequeInput, "Before<Deque>");
 
-		listTime = _mergeInsertSortList();
-		dequeTime = _mergeInsertSortDeque();
+		listTime = _mergeInsertSort(_listInput);
+		dequeTime = _mergeInsertSort(_dequeInput);
 		Log::logContainer(_listInput, "After<List> ");
 		Log::logContainer(_dequeInput, "After<Deque>");
 
@@ -71,26 +71,19 @@ void	PmergeMe::_fillListInput(char **av, int ac) {	Log::logFunction(__FUNCTION__
 	}
 }
 
-double	PmergeMe::_mergeInsertSortList() {	Log::logToConsole(__FUNCTION__);
-	double startTime = _currentTime();
-
-	double endTime = _currentTime();
-
-	return endTime - startTime;
-}
-
-double	PmergeMe::_mergeInsertSortDeque() {	Log::logToConsole(__FUNCTION__);
-	double startTime = _currentTime();
-
-	double endTime = _currentTime();
-
-	return endTime - startTime;
-}
-
 double	PmergeMe::_currentTime() {	Log::logToConsole(__FUNCTION__);
 	struct timeval currentTime;
 	gettimeofday(&currentTime, nullptr);
 	return static_cast<double>(currentTime.tv_sec) + (static_cast<double>(currentTime.tv_usec) / 1000000.0);
 }
 
+template<typename T>
+double PmergeMe::_mergeInsertSort(T &container) {	Log::logFunction(__FUNCTION__);
+	(void)container;
 
+	double startTime = _currentTime();
+
+	double endTime = _currentTime();
+
+	return endTime - startTime;
+}
