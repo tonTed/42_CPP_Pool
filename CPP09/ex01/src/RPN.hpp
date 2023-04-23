@@ -19,9 +19,10 @@ public:
 
 	RPN & operator=(RPN const & rhs);
 
-	void	_engine();
+	void			_engine();
+	std::string		_getInput();
+	bool			_updateStack(std::stack<char> & stack, std::stringstream & ss);
 
-	std::stack<char>	_stack;
 
 };
 

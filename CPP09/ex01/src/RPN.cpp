@@ -26,20 +26,41 @@ void	RPN::_engine() {	Log::logFunction(__FUNCTION__);
 
 	while (42)
 	{
-		std::string	input;
+		std::stack<char>	_stack;
 
-		std::stringstream ss;
+		std::string	input = _getInput();
 
-		std::cout << YELLOW << "Enter a RPN (or 'quit'): " << RESET;
-		std::getline(std::cin, input);
 		if (input == "quit") {
 			break;
 		}
+
+		std::stringstream ss;
 		ss << input;
-		std::string token;
-		while (ss >> token)
-		{
-			std::cout << token << std::endl;
-		}
+		if (!_updateStack(_stack, ss))
+			continue;
 	}
+}
+
+std::string	RPN::_getInput() {	Log::logFunction(__FUNCTION__);
+	std::string	input;
+
+	std::cout << YELLOW << "Enter a RPN (or 'quit'): " << RESET;
+	std::getline(std::cin, input);
+	return input;
+}
+
+bool	RPN::_updateStack(std::stack<char> &stack, std::stringstream &ss) {	Log::logFunction(__FUNCTION__);
+
+	std::string token;
+
+	while (ss >> token)
+	{
+		if (token.length() != 1 || (!isdigit(token[0]) && token[0] != '+' && token[0] != '-' && token[0] != '*' && token[0] != '/'))
+		{
+			std::cout << RED << "Error: " << RESET << "Invalid token: " << token << std::endl;
+			return false;
+		}
+		stack.push(token[0]);
+	}
+	return true;
 }
