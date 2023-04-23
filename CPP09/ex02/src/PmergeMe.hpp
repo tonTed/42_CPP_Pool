@@ -10,6 +10,13 @@
 
 class PmergeMe {
 
+public:
+	PmergeMe();
+	~PmergeMe();
+	PmergeMe(const PmergeMe & rhs);
+
+	PmergeMe & operator=(const PmergeMe & rhs);
+
 };
 
 
