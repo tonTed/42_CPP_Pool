@@ -15,11 +15,11 @@ PmergeMe::PmergeMe(char **av, int ac) {	Log::logFunction(__FUNCTION__);
 		Log::logContainer(_dequeInput, "Before<Deque>");
 
 		listTime = _currentTime();
-		_mergeInsertSort(_listInput);
+		_mergeInsertSort(_listInput, _listInput.begin(), _listInput.end(), THRESHOLD);
 		listTime = _currentTime() - listTime;
 
 		dequeTime = _currentTime();
-		_mergeInsertSort(_dequeInput);
+		_mergeInsertSort(_dequeInput, _dequeInput.begin(), _dequeInput.end(), THRESHOLD);
 		dequeTime = _currentTime() - dequeTime;
 
 		Log::logContainer(_listInput, "After<List> ");
@@ -84,6 +84,75 @@ double	PmergeMe::_currentTime() {	Log::logToConsole(__FUNCTION__);
 }
 
 template<typename T>
-void PmergeMe::_mergeInsertSort(T &container) {	Log::logFunction(__FUNCTION__);
+void	PmergeMe::_merge(T &container, typename T::iterator begin, typename T::iterator mid, typename T::iterator end) {	Log::logFunction(__FUNCTION__);
+
+
 	(void)container;
+	// Copy tabs
+	T	tab1;
+	T	tab2;
+
+	typename T::iterator it;
+	for (it = begin; it != mid; ++it)
+	{
+		Log::logToConsole("Pushing (tab1): " + std::to_string(*it));
+		tab1.push_back(*it);
+	}
+	for (it = mid; it != end; ++it)
+	{
+		Log::logToConsole("Pushing (tab2): " + std::to_string(*it));
+		tab2.push_back(*it);
+	}
+	Log::logContainer(tab1, "tab1: ");
+	Log::logContainer(tab2, "tab2: ");
+
+	// Merge two tabs into container
+	typename T::iterator it1 = tab1.begin();
+	typename T::iterator it2 = tab2.begin();
+	it = begin;
+
+	while (it1 != tab1.end() && it2 != tab2.end()) {
+		if (*it1 < *it2) {
+			*it = *it1;
+			++it1;
+		}
+		else {
+			*it = *it2;
+			++it2;
+		}
+		++it;
+	}
+
+	// Copy remaining elements of tab1
+	while (it1 != tab1.end()) {
+		*it = *it1;
+		++it1;
+		++it;
+	}
+
+	// Copy remaining elements of tab2
+	while (it2 != tab2.end()) {
+		*it = *it2;
+		++it2;
+		++it;
+	}
+}
+
+template<typename T>
+void 	PmergeMe::_mergeInsertSort(T &container, typename T::iterator begin, typename T::iterator end, int threshold) {	Log::logFunction(__FUNCTION__);
+
+	typename T::iterator mid = std::next(begin, std::distance(begin, end) / 2);
+
+	Log::logToConsole("len tab: " + std::to_string(std::distance(begin, end)));
+
+	if (std::distance(begin, end) <= threshold)
+	{
+		//insertionSort
+	}
+	else
+	{
+		_mergeInsertSort(container, begin, mid, threshold);
+		_mergeInsertSort(container, std::next(mid), end, threshold);
+		_merge(container, begin, mid ,end);
+	}
 }
