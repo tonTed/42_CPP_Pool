@@ -19,5 +19,7 @@ int main(int argc, char **argv) {	Log::logFunction(__FUNCTION__);
 
 	PmergeMe	pMergeMe(argv, argc);
 
+	Log::logToConsole("End of program!");
+
 	return 0;
 }

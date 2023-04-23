@@ -3,8 +3,9 @@
 //
 
 #include <list>
-#include <array>
+#include <deque>
 #include <string>
+#include <limits>
 
 #include "../Log.hpp"
 
@@ -23,6 +24,11 @@ private:
 	PmergeMe & operator=(const PmergeMe & rhs);
 	PmergeMe(const PmergeMe & rhs);
 	PmergeMe();
+
+	std::list<unsigned int>		_listInput;
+	std::deque<unsigned int>	_dequeInput;
+
+	void	_fillListInput(char **av, int ac);
 
 };
 
