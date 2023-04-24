@@ -30,12 +30,13 @@ private:
 	void		_updateDB();
 	size_t		_convertDateToTimestamp(std::string const & date);
 	std::string _convertTimestampToDate(size_t timestamp);
+	size_t		_getClosestTimestamp(size_t timestamp);
 
 	void	_manageInput(const std::string & inputFile);
 
 	void	_dayByMonthUpdate();
 
-	std::map<size_t, float>	_db;
+	std::map<size_t, float>		_db;
 
 	std::map<size_t, size_t>	_dayByMonth;
 };
