@@ -19,7 +19,8 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const & src) {	Log::logFunction
 
 BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange const & rhs) {	Log::logFunction(__FUNCTION__);
 	if (this != &rhs) {
-		//do stuff
+		this->_db = rhs._db;
+		this->_dayByMonth = rhs._dayByMonth;
 	}
 	return *this;
 }

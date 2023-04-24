@@ -37,7 +37,6 @@ private:
 	void	_dayByMonthUpdate();
 
 	std::map<size_t, float>		_db;
-
 	std::map<size_t, size_t>	_dayByMonth;
 };
 
