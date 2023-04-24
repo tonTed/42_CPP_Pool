@@ -24,7 +24,6 @@ public:
 	std::string		_getInput();
 	void			_doOp(std::stringstream & ss);
 
-
 };
 
 

@@ -49,7 +49,8 @@ PmergeMe::PmergeMe(const PmergeMe &rhs) {	Log::logFunction(__FUNCTION__);
 PmergeMe & PmergeMe::operator=(const PmergeMe &rhs) {	Log::logFunction(__FUNCTION__);
 	if (this != &rhs)
 	{
-
+		this->_listInput = rhs._listInput;
+		this->_dequeInput = rhs._dequeInput;
 	}
 	return *this;
 }
